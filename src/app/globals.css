@@ -19,3 +19,44 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Rainbow Spinner Animation */
+@keyframes rainbow-spin {
+  0% {
+    transform: rotate(0deg);
+    color: red;
+  }
+  14% {
+    color: orange;
+  }
+  28% {
+    color: yellow;
+  }
+  42% {
+    color: green;
+  }
+  57% {
+    color: blue;
+  }
+  71% {
+    color: indigo;
+  }
+  85% {
+    color: violet;
+  }
+  100% {
+    transform: rotate(360deg);
+    color: red;
+  }
+}
+
+.rainbow-spinner {
+  animation: rainbow-spin 1.5s linear infinite;
+}
+
+
