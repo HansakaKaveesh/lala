@@ -43,14 +43,7 @@ export function Header() {
         />
       </a>
 
-      {/* Hamburger Icon (Mobile) */}
-      <div className="lg:hidden flex items-center" onClick={toggleMenu}>
-        {isMenuOpen ? (
-          <FaTimes size={24} className="text-gray-700" />
-        ) : (
-          <FaBars size={24} className="text-gray-700" />
-        )}
-      </div>
+      
 
       {/* Navigation Links */}
       <nav
@@ -143,6 +136,15 @@ export function Header() {
             3
           </span>
         </a>
+      </div>
+
+      {/* Hamburger Icon (Mobile) */}
+      <div className="lg:hidden flex items-center" onClick={toggleMenu}>
+        {isMenuOpen ? (
+          <FaTimes size={24} className="text-gray-700" />
+        ) : (
+          <FaBars size={24} className="text-gray-700" />
+        )}
       </div>
     </header>
   );

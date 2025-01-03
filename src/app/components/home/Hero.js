@@ -37,7 +37,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative bg-cover bg-center h-[60vh] sm:h-[70vh] text-white flex flex-col justify-center items-center overflow-hidden"
+      className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] lg:h-[70vh] text-white flex flex-col justify-center items-center overflow-hidden"
       style={{
         backgroundImage: ads[currentAd].background,
         backgroundAttachment: "fixed",
@@ -47,11 +47,11 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/80"></div>
 
       {/* Carousel content */}
-      <div className="relative text-center max-w-2xl px-6 sm:px-10 animate-fade-in">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight text-shadow-xl animate-slide-up">
+      <div className="relative text-center max-w-2xl px-6 sm:px-8 md:px-12 animate-fade-in">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight text-shadow-xl animate-slide-up">
           {ads[currentAd].title}
         </h2>
-        <p className="mb-6 text-lg sm:text-xl text-gray-100 text-shadow-sm animate-fade-in">
+        <p className="mb-6 text-lg sm:text-xl lg:text-2xl text-gray-100 text-shadow-sm animate-fade-in">
           {ads[currentAd].description}
         </p>
         <a
