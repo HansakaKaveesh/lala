@@ -37,13 +37,14 @@ export default function RootLayout({ children }) {
           // Loading Page
           <div className="flex items-center justify-center h-screen bg-gray-100">
             <div className="text-center">
-              {/* Spinner Icon with Rainbow Animation */}
-              <FaSpinner className="w-16 h-16 text-blue-500 animate-spin mx-auto mb-4 rainbow-spinner" />
-              <p className="text-lg font-semibold text-gray-600">
-                Loading, please wait...
-              </p>
+                {/* Spinner Icon with Rainbow Animation */}
+          <FaSpinner className="w-16 h-16 sm:w-20 sm:h-20 text-blue-500 animate-spin mx-auto mb-4 rainbow-spinner" />
+            <p className="text-sm sm:text-lg font-semibold text-gray-600">
+              LaLa Studio, please wait...
+            </p>
             </div>
           </div>
+
         ) : (
           // Main Content
           <>
