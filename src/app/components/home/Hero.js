@@ -37,7 +37,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] lg:h-[70vh] text-white flex flex-col justify-center items-center overflow-hidden"
+      className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] lg:h-[70vh] xl:h-[80vh] text-white flex flex-col justify-center items-center overflow-hidden"
       style={{
         backgroundImage: ads[currentAd].background,
         backgroundAttachment: "fixed",
@@ -48,15 +48,15 @@ export function HeroSection() {
 
       {/* Carousel content */}
       <div className="relative text-center max-w-2xl px-6 sm:px-8 md:px-12 animate-fade-in">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight text-shadow-xl animate-slide-up">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight text-shadow-xl animate-slide-up">
           {ads[currentAd].title}
         </h2>
-        <p className="mb-6 text-lg sm:text-xl lg:text-2xl text-gray-100 text-shadow-sm animate-fade-in">
+        <p className="mb-6 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 text-shadow-sm animate-fade-in">
           {ads[currentAd].description}
         </p>
         <a
           href={ads[currentAd].link}
-          className="bg-blue-500 text-white py-4 px-12 rounded-full shadow-xl transform hover:bg-blue-600 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:translate-y-1"
+          className="bg-blue-500 text-white py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-xl transform hover:bg-blue-600 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:translate-y-1"
         >
           {ads[currentAd].buttonText}
         </a>
@@ -67,7 +67,7 @@ export function HeroSection() {
         {ads.map((_, index) => (
           <div
             key={index}
-            className={`w-2 h-2 rounded-full ${index === currentAd ? "bg-blue-500" : "bg-white/50"} transition-all duration-300`}
+            className={`w-2.5 h-2.5 rounded-full ${index === currentAd ? "bg-blue-500" : "bg-white/50"} transition-all duration-300`}
           ></div>
         ))}
       </div>
