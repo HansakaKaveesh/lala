@@ -43,16 +43,16 @@ const SaleProducts = () => {
                 <span className="text-gray-500 line-through">${product.originalPrice}</span>
                 <span className="text-xl font-bold text-red-500">${product.discountedPrice}</span>
               </div>
-              <div className="flex justify-between mt-4">
+              <div className="flex flex-col sm:flex-row justify-between mt-4 gap-2">
                 <button
                   onClick={() => handleAddToCart(product.id)}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 w-full sm:w-auto"
                 >
                   Add to Cart
                 </button>
                 <button
                   onClick={() => handleBuyNow(product.id)}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 w-full sm:w-auto"
                 >
                   Buy Now
                 </button>

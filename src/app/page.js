@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Header } from './components/home/Header';
 import { HeroSection } from './components/home/Hero';
 import { ProductShowcase } from './components/home/ProductShowcase';
-import { Categories } from './components/home/Categories';
+import  ShopByCategory  from './components/home/Categories';
 import SaleProducts from './components/home/SaleProducts';
 import { Testimonials } from './components/home/Testimonials';
 import { NewsletterSignup } from './components/home/NewsletterSignup';
@@ -22,7 +22,7 @@ export default function Home() {
       
       <main>
         <HeroSection />
-        <Categories />
+        <ShopByCategory />
         <ProductShowcase />
         <SaleProducts/>
         <Testimonials />
