@@ -11,31 +11,40 @@ const DenimRecycleAd = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed', // Keep background fixed while scrolling
+        backgroundColor: '#000', // Fallback color
       }}
     >
       {/* Overlay with transparent black */}
       <div className="absolute inset-0 bg-black opacity-60"></div>
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 px-4 sm:px-8">
         <h2
-          className="text-3xl sm:text-2xl lg:text-5xl font-bold text-white mb-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
           style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)' }}
         >
           Recycle Your Denim!
         </h2>
-        <p className="text-lg text-white mb-6">
+        <p className="text-base sm:text-lg md:text-xl text-white mb-6">
           Help reduce waste and promote sustainable fashion by recycling your old denim with us.
         </p>
-        <div className="flex justify-center items-center mb-6">
-          <FaRecycle className="text-6xl text-green-500 mr-4" />
-          <p className="text-xl text-white">Join the movement for a sustainable future!</p>
+        <div className="flex flex-col sm:flex-row justify-center items-center mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+          <FaRecycle className="text-4xl sm:text-5xl lg:text-6xl text-green-500" />
+          <p className="text-base sm:text-lg md:text-xl text-white text-center sm:text-left">
+            Join the movement for a sustainable future!
+          </p>
         </div>
-        <div className="space-x-4">
-          <button className="px-8 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300">
+        <div className="space-y-4 sm:space-y-0 sm:space-x-4">
+          <button
+            className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300"
+            aria-label="Learn More about Denim Recycling"
+          >
             Learn More
           </button>
-          <button className="px-8 py-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition duration-300">
+          <button
+            className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition duration-300"
+            aria-label="Join Denim Recycling Program"
+          >
             Join Now
           </button>
         </div>
