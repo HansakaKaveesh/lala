@@ -2,7 +2,7 @@ import React from "react";
 
 const AdvertisementVideo = () => {
   return (
-    <div className="relative w-full h-96 bg-gray-800">
+    <div className="relative w-full h-96 bg-gray-800 ">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
