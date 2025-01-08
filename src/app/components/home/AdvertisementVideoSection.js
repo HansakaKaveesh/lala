@@ -18,10 +18,6 @@ const AdvertisementVideo = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Overlay (Optional for better text readability) */}
-    
-
-      {/* Content on top of the video */}
       
     </div>
   );

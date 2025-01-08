@@ -1,87 +1,85 @@
-// components/ProductShowcase.js
-export function ProductShowcase() {
+import React from "react";
+import { Button } from "@/components/ui/button"; // shadcn-ui button component
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+
+const HotSaleSection = () => {
   const products = [
     {
-      img: "/home/featured/pro1.jpeg",
-      alt: "Product 1",
-      title: "Product Name 1",
-      price: "$49.99",
-      label: "New",
-      labelColor: "bg-red-500",
+      id: 1,
+      name: "Pro 1",
+      price: "$120",
+      image: "/home/featured/pro1.jpeg",
+      description: "Stay warm and stylish this winter.",
     },
     {
-      img: "/home/featured/pro3.jpeg",
-      alt: "Product 2",
-      title: "Product Name 2",
-      price: "$59.99",
-      label: "Sale",
-      labelColor: "bg-green-500",
+      id: 2,
+      name: "Pro 2",
+      price: "$85",
+      image: "/home/featured/pro2.jpeg",
+      description: "Perfect for your daily runs.",
     },
     {
-      img: "/home/featured/pro6.jpeg",
-      alt: "Product 3",
-      title: "Product Name 3",
-      price: "$39.99",
-      label: "Hot",
-      labelColor: "bg-yellow-500",
+      id: 3,
+      name: "Pro 3",
+      price: "$200",
+      image: "/home/featured/pro3.jpeg",
+      description: "Track your fitness goals.",
     },
+
     {
-      img: "/home/featured/pro10.jpeg",
-      alt: "Product 4",
-      title: "Product Name 4",
-      price: "$39.99",
-      label: "Featured",
-      labelColor: "bg-blue-500",
+      id: 4,
+      name: "Pro 4",
+      price: "$200",
+      image: "/home/featured/pro4.jpeg",
+      description: "Track your fitness goals.",
     },
+
     {
-      img: "/home/featured/pro5.jpeg",
-      alt: "Product 5",
-      title: "Product Name 5",
-      price: "$39.99",
-      label: "Limited",
-      labelColor: "bg-purple-500",
-    },
-    {
-      img: "/home/featured/pro7.jpeg",
-      alt: "Product 6",
-      title: "Product Name 6",
-      price: "$39.99",
-      label: "Trending",
-      labelColor: "bg-orange-500",
+      id: 5,
+      name: "Pro 5",
+      price: "$200",
+      image: "/home/featured/pro5.jpeg",
+      description: "Track your fitness goals.",
     },
   ];
 
   return (
-    <section id="products" className="py-8 bg-gradient-to-br from-gray-50 to-gray-200">
-      <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-        Featured Products
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 px-4">
-        {products.map((product, index) => (
-          <div
-            key={index}
-            className="relative bg-white shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out p-4 rounded-xl overflow-hidden max-w-xs mx-auto"
-          >
-            <div className={`absolute top-2 left-2 ${product.labelColor} text-white text-xs font-bold py-1 px-2 rounded-md z-10`}>
-              {product.label}
-            </div>
-            <img
-              src={product.img}
-              alt={product.alt}
-              className="w-full h-40 object-cover rounded-lg mb-4 transform hover:scale-105 transition-transform duration-300 ease-in-out"
-              loading="lazy"
-            />
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">{product.title}</h3>
-            <p className="text-sm font-semibold text-blue-600 mb-3 truncate">{product.price}</p>
-            <a
-              href="#"
-              className="block mt-auto bg-blue-600 text-white text-sm py-2 px-4 rounded-lg text-center font-medium hover:bg-blue-500 transition-all duration-300"
+    <section className="bg-gradient-to-b from-gray-100 to-gray-200 py-10">
+      <div className="container mx-auto text-center px-4">
+        <h2 className="text-xl font-bold text-gray-800 mb-4">Hot Sale</h2>
+        <p className="text-gray-600 mb-5 text-sm">Get the best deals on our top products.</p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {products.map((product) => (
+            <Card
+              key={product.id}
+              className="bg-white rounded-md shadow-sm transform transition duration-500 hover:-translate-y-1 hover:shadow-md"
             >
-              View Details
-            </a>
-          </div>
-        ))}
+              <CardHeader>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-44 object-cover rounded-t-md rounded-b-md"
+                />
+              </CardHeader>
+              <CardContent className="p-1">
+                <h3 className="text-base font-semibold text-gray-800 mb-1">
+                  {product.name}
+                </h3>
+                <p className="text-xs text-gray-600 mb-1">{product.description}</p>
+                <p className="text-base font-semibold text-red-500">{product.price}</p>
+              </CardContent>
+              <CardFooter className="flex justify-center p-5">
+                <Button className="bg-red-500 text-white px-3 py-1 rounded-sm text-xs hover:bg-red-600 hover:shadow-sm transition duration-300">
+                  Add to Cart
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default HotSaleSection;
