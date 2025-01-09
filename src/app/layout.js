@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* Add metadata for the page */}
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
         <meta
           name="description"
           content="LaLa Studio - A place for creative expression and innovative design."

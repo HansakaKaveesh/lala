@@ -35,7 +35,7 @@ export function Header() {
       }`}
     >
       {/* Logo Image */}
-      <a href="/" className="flex items-center">
+      <a href="/" className="flex items-center"> 
         <img
           src="/logo.jpg" // Replace with your actual logo image path
           alt="Logo"
