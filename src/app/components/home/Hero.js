@@ -1,5 +1,7 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button"; // Adjust the import path based on your project structure
 
 export function HeroSection() {
   const [currentAd, setCurrentAd] = useState(0);
@@ -54,12 +56,13 @@ export function HeroSection() {
         <p className="mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 text-shadow-sm animate-fade-in">
           {ads[currentAd].description}
         </p>
-        <a
+        <Button
+          as="a"
           href={ads[currentAd].link}
           className="bg-blue-600 text-white py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-xl transform hover:bg-blue-700 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:translate-y-1"
         >
           {ads[currentAd].buttonText}
-        </a>
+        </Button>
       </div>
 
       {/* Carousel Indicator */}

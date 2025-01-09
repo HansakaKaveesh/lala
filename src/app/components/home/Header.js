@@ -71,7 +71,7 @@ export function Header() {
               <ul className="absolute top-6 left-0 bg-white shadow-lg border rounded-md py-2 w-40 text-left z-10 transition-all duration-300 ease-in-out">
                 <li>
                   <a
-                    href="#electronics"
+                    href="/categories/new-arrivals"
                     className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
                   >
                     New Arrivals
@@ -79,7 +79,7 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="#fashion"
+                    href="/categories/denim"
                     className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
                   >
                     Denim
@@ -87,7 +87,7 @@ export function Header() {
                 </li>
                 <li>
                   <a
-                    href="/tops"
+                    href="/categories/tops"
                     className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
                   >
                     Tops
@@ -98,7 +98,7 @@ export function Header() {
           </li>
           <li>
             <a
-              href="#about"
+              href="/about"
               className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
             >
               About
@@ -106,7 +106,7 @@ export function Header() {
           </li>
           <li>
             <a
-              href="#contact"
+              href="/contact"
               className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
             >
               Contact
