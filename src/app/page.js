@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { Header } from './components/home/Header';
-import { HeroSection } from './components/home/Hero';
+import Header  from './components/home/Header';
+import HeroSection  from './components/home/Hero';
 import ProductShowcase  from './components/home/ProductShowcase';
 import  ShopByCategory  from './components/home/Categories';
 import AdvertisementVideoSection from './components/home/AdvertisementVideoSection';
@@ -22,6 +22,7 @@ export default function Home() {
       
       
       <main>
+        
         <HeroSection />
         <ShopByCategory />
         <ProductShowcase />

@@ -1,81 +1,55 @@
 "use client";
+import React from "react";
+import { FaFacebook, FaInstagram, FaWhatsapp, FaUserCircle } from "react-icons/fa";
 
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button"; // Adjust the import path based on your project structure
-
-export function HeroSection() {
-  const [currentAd, setCurrentAd] = useState(0);
-  const ads = [
-    {
-      title: "Biggest Sale of the Season",
-      description: "Up to 50% off on all collections. Limited time offer!",
-      link: "#shop-now",
-      buttonText: "Shop Now",
-      background: "url(/ad1.jpg)",
-    },
-    {
-      title: "Exclusive Winter Collection",
-      description: "Warm up with our latest winter arrivals.",
-      link: "#shop-now",
-      buttonText: "Shop Winter",
-      background: "url(/ad2.jpg)",
-    },
-    {
-      title: "Holiday Gifts for Everyone",
-      description: "Find the perfect gift for your loved ones.",
-      link: "#shop-now",
-      buttonText: "Shop Gifts",
-      background: "url(/ad3.jpg)",
-    },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentAd((prev) => (prev + 1) % ads.length);
-    }, 6000); // Change ad every 6 seconds
-
-    return () => clearInterval(interval);
-  }, [ads.length]);
-
+export default function Hero() {
   return (
-    <section
-      className="relative bg-cover bg-center h-[60vh] sm:h-[70vh] lg:h-[80vh] xl:h-[90vh] text-white flex flex-col justify-center items-center overflow-hidden transition-all duration-1000"
+    <div
+      className="w-full h-screen bg-no-repeat bg-cover bg-center"
       style={{
-        backgroundImage: ads[currentAd].background,
+        backgroundImage: "url('/ad2.jpg')",
         backgroundAttachment: "fixed",
-        transition: "background-image 1s ease-in-out", // Smooth background transition
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
+      <div className="w-[90%] mx-auto h-full flex items-center justify-between py-10">
+        <div className="lg:w-fit">
+          <div className="sm:text-6xl xs:text-5xl text-left text-white font-serif font-extrabold uppercase">
+            <h1>Get</h1>
+            <h1>in</h1>
+            <h1 className="bg-black/30 text-white rounded-sm px-1 shadow-sm shadow-white/50">
+              Clothes
+            </h1>
+            <h1>Today</h1>
+          </div>
+          <div className="w-full flex items-center justify-between mt-6 py-1 px-4 uppercase bg-green-500 rounded-sm cursor-pointer">
+            <h3 className="text-white text-lg font-semibold">Buy Now</h3>
+            <div className="w-[40%] flex items-center text-gray-700 text-4xl gap-0">
+              <hr className="w-full border border-gray-700 relative -right-3" />
+              <ion-icon name="chevron-forward"></ion-icon>
+            </div>
+          </div>
+          <p className="text-md text-white bg-black/30 font-semibold mt-1 capitalize rounded-lg p-2">
+            25% Discount
+          </p>
+        </div>
 
-      {/* Carousel content */}
-      <div className="relative text-center max-w-3xl px-6 sm:px-8 md:px-12 animate-fade-in">
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-4 tracking-tight text-shadow-xl animate-slide-up">
-          {ads[currentAd].title}
-        </h2>
-        <p className="mb-6 text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 text-shadow-sm animate-fade-in">
-          {ads[currentAd].description}
-        </p>
-        <Button
-          as="a"
-          href={ads[currentAd].link}
-          className="bg-blue-600 text-white py-3 px-8 sm:py-4 sm:px-12 rounded-full shadow-xl transform hover:bg-blue-700 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:translate-y-1"
-        >
-          {ads[currentAd].buttonText}
-        </Button>
+        <div>
+          <ul className="text-3xl text-white space-y-2">
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
+              <FaFacebook />
+            </li>
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
+              <FaInstagram />
+            </li>
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
+              <FaWhatsapp />
+            </li>
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
+              <FaUserCircle />
+            </li>
+          </ul>
+        </div>
       </div>
-
-      {/* Carousel Indicator */}
-      <div className="absolute bottom-10 flex space-x-2">
-        {ads.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === currentAd ? "bg-blue-500" : "bg-white/50"
-            } transition-all duration-300`}
-          ></div>
-        ))}
-      </div>
-    </section>
+    </div>
   );
 }

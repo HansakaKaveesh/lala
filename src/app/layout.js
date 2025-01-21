@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/home/Header";
+import  Header  from "./components/home/Header";
 import SocialMediaBar from "./components/home/SocialMediaBar";
 import { FaSpinner } from "react-icons/fa"; // Import spinner icon from React Icons
 
@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
         ) : (
           // Main Content
           <>
-            <SocialMediaBar />
+            
             <Header />
             {children}
           </>

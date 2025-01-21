@@ -1,27 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
-import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { FaSearch, FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
 
-export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,117 +16,75 @@ export function Header() {
 
   return (
     <header
-      className={`bg-gradient-to-r from-white via-blue-50 to-white shadow-lg py-3 px-6 flex items-center justify-between transition-all duration-300 ease-in-out ${
-        isScrolled ? "fixed top-0 left-0 right-0 z-50 shadow-xl" : ""
+      className={`fixed top-0 left-0 w-full lg:px-16 px-4 flex flex-wrap items-center py-4 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/40 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
-      {/* Logo Image */}
-      <a href="/" className="flex items-center"> 
-        <img
-          src="/logo.jpg" // Replace with your actual logo image path
-          alt="Logo"
-          className="h-10 w-auto object-contain"
-        />
-      </a>
-
-      {/* Navigation Links */}
-      <nav
-        className={`lg:flex lg:items-center lg:gap-8 ${isMenuOpen ? "block" : "hidden"} lg:block`}
-      >
-        <ul className="flex flex-col lg:flex-row gap-4 lg:gap-8 text-center lg:text-left transition-all duration-300 ease-in-out">
-          <li>
-            <a
-              href="/"
-              className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
-            >
-              Home
-            </a>
-          </li>
-          <li
-            className="relative group"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <button
-              className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
-              onClick={toggleDropdown}
-            >
-              Categories
-            </button>
-            {isDropdownOpen && (
-              <ul className="absolute top-6 left-0 bg-white shadow-lg border rounded-md py-2 w-40 text-left z-10 transition-all duration-300 ease-in-out">
-                <li>
-                  <a
-                    href="/categories/new-arrivals"
-                    className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
-                  >
-                    New Arrivals
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/categories/denim"
-                    className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
-                  >
-                    Denim
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/categories/tops"
-                    className="block px-4 py-2 text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-colors duration-300 ease-in-out"
-                  >
-                    Tops
-                  </a>
-                </li>
-              </ul>
-            )}
-          </li>
-          <li>
-            <a
-              href="/about"
-              className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="/contact"
-              className="text-gray-700 text-sm font-medium hover:text-blue-600 transition-colors duration-300 ease-in-out"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Icons */}
-      <div className="flex items-center gap-6">
-        <a
-          href="/login"
-          className="text-gray-700 hover:text-blue-600 transition-colors duration-300 ease-in-out"
-        >
-          <FaUser size={20} />
-        </a>
-        <a
-          href="#cart"
-          className="text-gray-700 hover:text-blue-600 transition-colors duration-300 ease-in-out relative"
-        >
-          <FaShoppingCart size={20} />
-          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
-            3
-          </span>
+      {/* Logo */}
+      <div className="flex-1 flex justify-between items-center">
+        <a href="#" className="text-4xl text-gray-900 font-extrabold">
+          LALA
         </a>
       </div>
 
-      {/* Hamburger Icon (Mobile) */}
-      <div className="lg:hidden flex items-center" onClick={toggleMenu}>
-        {isMenuOpen ? (
-          <FaTimes size={24} className="text-gray-700 hover:text-blue-600 transition-colors duration-300 ease-in-out" />
-        ) : (
-          <FaBars size={24} className="text-gray-700 hover:text-blue-600 transition-colors duration-300 ease-in-out" />
-        )}
+      {/* Mobile Menu Toggle */}
+      <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
+        <FaBars className="text-gray-600 text-2xl" />
+      </label>
+      <input className="hidden peer" type="checkbox" id="menu-toggle" />
+
+      {/* Navigation Menu */}
+      <div
+        className="hidden peer-checked:flex md:flex md:items-center md:w-auto w-full"
+        id="menu"
+      >
+        <nav className="flex items-center justify-between w-full">
+          <ul className="md:flex items-center justify-between text-base text-gray-600 pt-4 md:pt-0">
+            <li>
+              <a className="md:p-4 py-3 px-0 block hover:text-gray-800" href="#">
+                Home
+              </a>
+            </li>
+            <li>
+              <a className="md:p-4 py-3 px-0 block hover:text-gray-800" href="#">
+                Services
+              </a>
+            </li>
+            <li>
+              <a className="md:p-4 py-3 px-0 block hover:text-gray-800" href="#">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a className="md:p-4 py-3 px-0 block hover:text-gray-800" href="#">
+                Contact
+              </a>
+            </li>
+          </ul>
+          {/* Right Icons */}
+          <div className="flex items-center space-x-4 mt-4 md:mt-0">
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-800 transition-all duration-300"
+            >
+              <FaSearch className="text-xl" />
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-800 transition-all duration-300"
+            >
+              <FaUserCircle className="text-xl" />
+            </a>
+            <a
+              href="#"
+              className="text-gray-600 hover:text-gray-800 transition-all duration-300"
+            >
+              <FaShoppingCart className="text-xl" />
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
   );
