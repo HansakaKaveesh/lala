@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FaFacebook, FaInstagram, FaWhatsapp, FaUserCircle } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -35,17 +35,25 @@ export default function Hero() {
 
         <div>
           <ul className="text-3xl text-white space-y-2">
-            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
-              <FaFacebook />
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-blue-500 transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <FaFacebook />
+              </a>
             </li>
-            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
-              <FaInstagram />
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-pink-500 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
+              </a>
             </li>
-            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
-              <FaWhatsapp />
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-green-500 transition-colors">
+              <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+                <FaWhatsapp />
+              </a>
             </li>
-            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full">
-              <FaUserCircle />
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-blue-600 transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin />
+              </a>
             </li>
           </ul>
         </div>
