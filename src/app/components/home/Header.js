@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaSearch, FaUserCircle, FaShoppingCart, FaBars } from "react-icons/fa";
+import { FaSearch, FaUserCircle, FaShoppingBag, FaBars } from "react-icons/fa";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track the state of the menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +21,6 @@ export default function Navbar() {
     setIsSearchOpen((prev) => !prev);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 w-full lg:px-16 px-4 flex flex-wrap items-center py-4 z-50 transition-all duration-300 ${
@@ -34,9 +31,9 @@ export default function Navbar() {
       <div className="flex-1 flex items-center justify-between">
         <a href="/" className="flex items-center">
           <img
-            src="/LALA LOGO AW FINAL.png" // Replace with the path to your logo
+            src="/LALA LOGO AW FINAL.png"
             alt="Logo"
-            className="h-14" // Adjust the height as needed
+            className="h-14"
           />
           <span className="ml-3 text-xl font-semibold text-gray-600 hover:text-gray-800 transition-colors duration-300">
             LaLa Studio
@@ -48,7 +45,7 @@ export default function Navbar() {
       <label
         htmlFor="menu-toggle"
         className="cursor-pointer md:hidden block"
-        onClick={toggleMenu} // Toggle menu state when clicked
+        onClick={() => setIsMenuOpen((prev) => !prev)}
       >
         <FaBars className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
       </label>
@@ -56,9 +53,7 @@ export default function Navbar() {
 
       {/* Navigation Menu */}
       <div
-        className={`hidden peer-checked:flex md:flex md:items-center md:w-auto w-full ${
-          isMenuOpen ? "" : ""
-        }`} // Apply background color when menu is open
+        className={`hidden peer-checked:flex md:flex md:items-center md:w-auto w-full`}
         id="menu"
       >
         <nav className="flex items-center justify-between w-full">
@@ -71,13 +66,46 @@ export default function Navbar() {
                 Home
               </a>
             </li>
-            <li>
+            <li
+              className="relative"
+              onMouseEnter={() => setIsCategoryOpen(true)}
+              onMouseLeave={() => setIsCategoryOpen(false)}
+            >
               <a
-                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-                href="#"
+                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer"
               >
-                Services
+                Category
               </a>
+              {isCategoryOpen && (
+                <div className="absolute top-9 left-0 bg-white shadow-md rounded-md mt-2 w-48">
+                  <ul className="flex flex-col text-gray-700">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
+                      >
+                        New Arrivals
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
+                      >
+                        Denim
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
+                      >
+                        Tops
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </li>
             <li>
               <a
@@ -115,7 +143,7 @@ export default function Navbar() {
               href="#"
               className="text-gray-600 hover:text-blue-500 transition-colors duration-300"
             >
-              <FaShoppingCart className="text-xl" />
+              <FaShoppingBag className="text-xl" />
             </a>
           </div>
         </nav>

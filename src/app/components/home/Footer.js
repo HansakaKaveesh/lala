@@ -9,14 +9,14 @@ import { SiVisa, SiMastercard, SiAmericanexpress } from "react-icons/si";
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-yellow-300 text-black py-12">
       <div className="container mx-auto px-6 lg:px-20">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-10">
           {/* About Section */}
           <div>
             <h2 className="text-2xl font-semibold">LALA Studio</h2>
-            <p className="mt-3 text-gray-400">
+            <p className="mt-3 text-gray-600">
               Your one-stop shop for trendy clothing. Discover the latest
               fashion trends and elevate your wardrobe with us.
             </p>
@@ -29,7 +29,7 @@ export function Footer() {
               <li>
                 <a
                   href="/about"
-                  className="text-gray-400 hover:text-white focus:outline-none focus:underline"
+                  className="text-gray-600 hover:text-white focus:outline-none focus:underline"
                 >
                   About Us
                 </a>
@@ -37,7 +37,7 @@ export function Footer() {
               <li>
                 <a
                   href="/shop"
-                  className="text-gray-400 hover:text-white focus:outline-none focus:underline"
+                  className="text-gray-600 hover:text-white focus:outline-none focus:underline"
                 >
                   Shop
                 </a>
@@ -45,7 +45,7 @@ export function Footer() {
               <li>
                 <a
                   href="/blog"
-                  className="text-gray-400 hover:text-white focus:outline-none focus:underline"
+                  className="text-gray-600 hover:text-white focus:outline-none focus:underline"
                 >
                   Blog
                 </a>
@@ -53,7 +53,7 @@ export function Footer() {
               <li>
                 <a
                   href="/contact"
-                  className="text-gray-400 hover:text-white focus:outline-none focus:underline"
+                  className="text-gray-600 hover:text-white focus:outline-none focus:underline"
                 >
                   Contact Us
                 </a>
@@ -64,7 +64,7 @@ export function Footer() {
           {/* Contact Information */}
           <div>
             <h3 className="text-xl font-medium mb-4">Contact Us</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-600">
               Email:{" "}
               <a
                 href="mailto:support@clothsale.com"
@@ -73,8 +73,8 @@ export function Footer() {
                 support@clothsale.com
               </a>
             </p>
-            <p className="mt-2 text-gray-400">Phone: +1 (555) 123-4567</p>
-            <p className="mt-2 text-gray-400">
+            <p className="mt-2 text-gray-600">Phone: +1 (555) 123-4567</p>
+            <p className="mt-2 text-gray-600">
               Address: 123 Fashion Street, New York, NY, USA
             </p>
           </div>
@@ -82,19 +82,19 @@ export function Footer() {
           {/* Newsletter Section */}
           <div>
             <h3 className="text-xl font-medium mb-4">Subscribe to Our Newsletter</h3>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-600 mb-4">
               Stay updated on the latest trends and exclusive offers.
             </p>
             <form className="flex flex-col space-y-3">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-4 py-2 rounded-md bg-gray-800 text-gray-300 focus:outline-none focus:ring focus:ring-blue-500"
+                className="px-4 py-2 rounded-md bg-yellow-100 text-gray-300 focus:outline-none focus:ring focus:ring-blue-500"
                 required
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-blue-600 rounded-md text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-500"
+                className="px-4 py-2 bg-yellow-700 rounded-md text-white font-medium hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-blue-500"
               >
                 Subscribe
               </button>
@@ -102,9 +102,9 @@ export function Footer() {
           </div>
            {/* Payment Icons */}
            <div className="flex  space-x-6">
-            <SiVisa className="text-gray-400 text-3xl hover:text-white" />
-            <SiMastercard className="text-gray-400 text-3xl hover:text-white" />
-            <SiAmericanexpress className="text-gray-400 text-3xl hover:text-white" />
+            <SiVisa className="text-yellow-900 text-3xl hover:text-white" />
+            <SiMastercard className="text-yellow-900 text-3xl hover:text-white" />
+            <SiAmericanexpress className="text-yellow-900 text-3xl hover:text-white" />
           </div>
         </div>
 
@@ -115,7 +115,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:text-white"
+            className="text-yellow-900 hover:text-white text-2xl focus:outline-none focus:text-white"
           >
             <FaFacebookF />
           </a>
@@ -124,7 +124,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:text-white"
+            className="text-yellow-900 hover:text-white text-2xl focus:outline-none focus:text-white"
           >
             <FaTwitter />
           </a>
@@ -133,7 +133,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:text-white"
+            className="text-yellow-900 hover:text-white text-2xl focus:outline-none focus:text-white"
           >
             <FaInstagram />
           </a>
@@ -142,7 +142,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-gray-400 hover:text-white text-2xl focus:outline-none focus:text-white"
+            className="text-yellow-900 hover:text-white text-2xl focus:outline-none focus:text-white"
           >
             <FaLinkedinIn />
           </a>
@@ -151,7 +151,7 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="text-center mt-10">
-          <p className="text-gray-400 mb-4">
+          <p className="text-black mb-4">
             &copy; {new Date().getFullYear()} ClothSale. All rights reserved.
           </p>
 

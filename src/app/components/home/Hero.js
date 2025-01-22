@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
-import { FaFacebook, FaInstagram, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -53,6 +59,11 @@ export default function Hero() {
             <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-blue-600 transition-colors">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin />
+              </a>
+            </li>
+            <li className="flex justify-center items-center p-1 bg-black/40 rounded-full hover:text-red-500 transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                <FaYoutube />
               </a>
             </li>
           </ul>

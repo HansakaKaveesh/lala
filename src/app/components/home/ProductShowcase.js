@@ -70,8 +70,8 @@ const HotSaleSection = () => {
                 <p className="text-base font-semibold text-red-500">{product.price}</p>
               </CardContent>
               <CardFooter className="flex justify-center p-5">
-                <Button className="bg-red-500 text-white px-3 py-1 rounded-sm text-xs hover:bg-red-600 hover:shadow-sm transition duration-300">
-                  Add to Cart
+                <Button className="bg-yellow-300 text-black px-3 py-1 rounded-sm text-xs hover:bg-yellow-400 hover:shadow-sm transition duration-300">
+                  Add to Bag
                 </Button>
               </CardFooter>
             </Card>
