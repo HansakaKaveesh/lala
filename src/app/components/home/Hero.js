@@ -23,12 +23,10 @@ export default function Hero() {
 
       <div className="w-full h-full flex items-center justify-center py-10 relative z-10">
         <div className="text-center lg:w-fit">
-          <div className="sm:text-5xl xs:text-5xl text-white font-sans font-bold uppercase">
-            <h1>Get in</h1>
+          <div className="sm:text-7xl xs:text-8xl text-white font-sans font-bold uppercase">
+            <h1>Get in Clothes</h1>
             
-            <h1 className="bg-black/30 text-white rounded-sm px-1 shadow-sm shadow-white/50">
-              Clothes
-            </h1>
+            
             <h1>Today</h1>
           </div>
 

@@ -42,7 +42,7 @@ export default function Navbar() {
   <div className="flex-1 flex justify-center px-28 ">
       <span
         className={`ml-1 text-5xl font-serif text-gray-300 transition-all duration-300 ${
-          isScrolled ? 'text-gray-600 transform scale-75 ' : 'transform scale-150 absolute top-10'
+          isScrolled ? 'text-gray-600 transform scale-75 ' : 'text-yellow-300 transform scale-150 absolute top-10'
         }`}
       >LALA STUDIO
       </span>
