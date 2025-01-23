@@ -23,150 +23,158 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full lg:px-16 px-4 flex flex-wrap items-center py-4 z-50 transition-all duration-300 ${
-        isScrolled || isMenuOpen ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
-    >
-      {/* Logo and Name */}
-      <div className="flex-1 flex items-center justify-between">
-        <a href="/" className="flex items-center">
-          <img
-            src="/LALA LOGO AW FINAL.png"
-            alt="Logo"
-            className="h-14"
-          />
-          <span className="ml-3 text-xl font-semibold text-gray-600 hover:text-gray-800 transition-colors duration-300">
-            LaLa Studio
-          </span>
+  className={`fixed top-0 left-0 w-full lg:px-16 px-4 flex flex-wrap items-center py-4 z-50 transition-all duration-300 ${
+    isScrolled || isMenuOpen ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
+  }`}
+>
+  {/* Logo and Name */}
+  <div className="flex-1 flex items-center justify-between">
+    <a href="/" className="flex items-center ">
+      <img
+        src="/LALA LOGO AW FINAL.png"
+        alt="Logo"
+        className="h-14"
+      />
+    </a>
+  </div>
+
+  {/* Centered Text */}
+  <div className="flex-1 flex justify-center px-28 ">
+      <span
+        className={`ml-1 text-5xl font-serif text-gray-300 transition-all duration-300 ${
+          isScrolled ? 'text-gray-600 transform scale-75 ' : 'transform scale-150 absolute top-10'
+        }`}
+      >LALA STUDIO
+      </span>
+    </div>
+
+  {/* Mobile Menu Toggle */}
+  <label
+    htmlFor="menu-toggle"
+    className="cursor-pointer md:hidden block"
+    onClick={() => setIsMenuOpen((prev) => !prev)}
+  >
+    <FaBars className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
+  </label>
+  <input className="hidden peer" type="checkbox" id="menu-toggle" />
+
+  {/* Navigation Menu */}
+  <div
+    className={`hidden peer-checked:flex md:flex md:items-center md:w-auto w-full`}
+    id="menu"
+  >
+    <nav className="flex items-center justify-between w-full">
+      <ul className="md:flex items-center justify-between text-base text-gray-800 pt-4 md:pt-0">
+        <li>
+          <a
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
+            href="#"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="relative"
+          onMouseEnter={() => setIsCategoryOpen(true)}
+          onMouseLeave={() => setIsCategoryOpen(false)}
+        >
+          <a
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer"
+          >
+            Category
+          </a>
+          {isCategoryOpen && (
+            <div className="absolute top-9 left-0 bg-white shadow-md mt-2 w-48">
+              <ul className="flex flex-col text-gray-700">
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
+                  >
+                    New Arrivals
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
+                  >
+                    Denim
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
+                  >
+                    Tops
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </li>
+        <li>
+          <a
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
+            href="#"
+          >
+            About Us
+          </a>
+        </li>
+        <li>
+          <a
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
+            href="#"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      {/* Right Icons */}
+      <div className="flex items-center space-x-4 mt-4 md:mt-0">
+        <button
+          onClick={toggleSearch}
+          className="text-gray-800 hover:text-blue-500 transition-colors duration-300"
+        >
+          <FaSearch className="text-xl" />
+        </button>
+        <a
+          href="/login"
+          className="text-gray-800 hover:text-blue-500 transition-colors duration-300"
+        >
+          <FaUserCircle className="text-xl" />
+        </a>
+        <a
+          href="#"
+          className="text-gray-800 hover:text-blue-500 transition-colors duration-300"
+        >
+          <FaShoppingBag className="text-xl" />
         </a>
       </div>
+    </nav>
+  </div>
 
-      {/* Mobile Menu Toggle */}
-      <label
-        htmlFor="menu-toggle"
-        className="cursor-pointer md:hidden block"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
-      >
-        <FaBars className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
-      </label>
-      <input className="hidden peer" type="checkbox" id="menu-toggle" />
-
-      {/* Navigation Menu */}
-      <div
-        className={`hidden peer-checked:flex md:flex md:items-center md:w-auto w-full`}
-        id="menu"
-      >
-        <nav className="flex items-center justify-between w-full">
-          <ul className="md:flex items-center justify-between text-base text-gray-600 pt-4 md:pt-0">
-            <li>
-              <a
-                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-                href="#"
-              >
-                Home
-              </a>
-            </li>
-            <li
-              className="relative"
-              onMouseEnter={() => setIsCategoryOpen(true)}
-              onMouseLeave={() => setIsCategoryOpen(false)}
-            >
-              <a
-                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer"
-              >
-                Category
-              </a>
-              {isCategoryOpen && (
-                <div className="absolute top-9 left-0 bg-white shadow-md rounded-md mt-2 w-48">
-                  <ul className="flex flex-col text-gray-700">
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
-                      >
-                        New Arrivals
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
-                      >
-                        Denim
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 transition-colors duration-300"
-                      >
-                        Tops
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </li>
-            <li>
-              <a
-                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-                href="#"
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-                href="#"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-
-          {/* Right Icons */}
-          <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <button
-              onClick={toggleSearch}
-              className="text-gray-600 hover:text-blue-500 transition-colors duration-300"
-            >
-              <FaSearch className="text-xl" />
-            </button>
-            <a
-              href="/login"
-              className="text-gray-600 hover:text-blue-500 transition-colors duration-300"
-            >
-              <FaUserCircle className="text-xl" />
-            </a>
-            <a
-              href="#"
-              className="text-gray-600 hover:text-blue-500 transition-colors duration-300"
-            >
-              <FaShoppingBag className="text-xl" />
-            </a>
-          </div>
-        </nav>
+  {/* Search Bar */}
+  {isSearchOpen && (
+    <div className="absolute top-full right-0 w-50 bg-white shadow-md p-4 z-50 rounded-md">
+      <div className="flex items-center">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          onClick={toggleSearch}
+          className="ml-2 p-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors duration-300"
+        >
+          Close
+        </button>
       </div>
+    </div>
+  )}
+</header>
 
-      {/* Search Bar */}
-      {isSearchOpen && (
-        <div className="absolute top-full right-0 w-50 bg-white shadow-md p-4 z-50 rounded-md">
-          <div className="flex items-center">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              onClick={toggleSearch}
-              className="ml-2 p-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors duration-300"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </header>
   );
 }

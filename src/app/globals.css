@@ -137,3 +137,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .scale-500 {
+    transform: scale(5);
+  }
+}

@@ -6,7 +6,7 @@ const SaleProducts = () => {
   const products = [
     {
       id: 1,
-      name: "Pro 1",
+      name: "Pro 01",
       price: "$120",
       discountPrice: "$100",
       image: "/home/featured/pro1.jpeg",
@@ -14,7 +14,7 @@ const SaleProducts = () => {
     },
     {
       id: 2,
-      name: "Pro 2",
+      name: "Pro 02",
       price: "$85",
       discountPrice: "$70",
       image: "/home/featured/pro7.jpeg",
@@ -22,7 +22,7 @@ const SaleProducts = () => {
     },
     {
       id: 3,
-      name: "Pro 3",
+      name: "Pro 03",
       price: "$200",
       discountPrice: "$180",
       image: "/home/featured/pro8.jpeg",
@@ -30,7 +30,7 @@ const SaleProducts = () => {
     },
     {
       id: 4,
-      name: "Pro 4",
+      name: "Pro 04",
       price: "$200",
       discountPrice: "$180",
       image: "/home/featured/pro4.jpeg",
@@ -38,7 +38,48 @@ const SaleProducts = () => {
     },
     {
       id: 5,
-      name: "Pro 5",
+      name: "Pro 05",
+      price: "$200",
+      discountPrice: "$180",
+      image: "/home/featured/pro10.jpeg",
+      description: "Track your fitness goals.",
+    },
+
+    {
+      id: 6,
+      name: "Pro 06",
+      price: "$120",
+      discountPrice: "$100",
+      image: "/home/featured/pro1.jpeg",
+      description: "Stay warm and stylish this winter.",
+    },
+    {
+      id: 7,
+      name: "Pro 07",
+      price: "$85",
+      discountPrice: "$70",
+      image: "/home/featured/pro7.jpeg",
+      description: "Perfect for your daily runs.",
+    },
+    {
+      id: 8,
+      name: "Pro 08",
+      price: "$200",
+      discountPrice: "$180",
+      image: "/home/featured/pro8.jpeg",
+      description: "Track your fitness goals.",
+    },
+    {
+      id: 9,
+      name: "Pro 09",
+      price: "$200",
+      discountPrice: "$180",
+      image: "/home/featured/pro4.jpeg",
+      description: "Track your fitness goals.",
+    },
+    {
+      id: 10,
+      name: "Pro 10",
       price: "$200",
       discountPrice: "$180",
       image: "/home/featured/pro10.jpeg",
@@ -78,7 +119,7 @@ const SaleProducts = () => {
                 <p className="text-base font-semibold text-red-500">{product.discountPrice}</p>
               </CardContent>
               <CardFooter className="flex justify-center p-5">
-                <Button className="bg-red-500 text-white px-3 py-1 rounded-sm text-xs hover:bg-red-600 hover:shadow-sm transition duration-300">
+                <Button className="bg-yellow-300 text-black px-3 py-1 rounded-sm text-xs hover:bg-yellow-400 hover:shadow-sm transition duration-300">
                   Add to Cart
                 </Button>
               </CardFooter>
