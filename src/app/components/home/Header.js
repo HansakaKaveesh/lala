@@ -38,13 +38,12 @@ export default function Navbar() {
     </a>
   </div>
 
-  {/* Centered Text */}
-<div className="absolute inset-0 flex items-center justify-center">
+  <div className="absolute inset-0 flex items-center justify-center">
   <span
-    className={`text-5xl font-serif transition-transform duration-1000 ease-in-out ${
+    className={`text-5xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
-        ? 'text-gray-600 scale-75 translate-y-0'
-        : 'text-yellow-300 scale-150 translate-y-10'
+        ? 'text-gray-600 scale-50 md:scale-75 translate-y-0'
+        : 'text-yellow-300 scale-75 md:scale-125 translate-y-14'
     }`}
   >
     LALA STUDIO
@@ -53,10 +52,11 @@ export default function Navbar() {
 
 
 
+
   {/* Mobile Menu Toggle */}
   <label
     htmlFor="menu-toggle"
-    className="cursor-pointer md:hidden block"
+    className="cursor-pointer md:hidden block relative"
     onClick={() => setIsMenuOpen((prev) => !prev)}
   >
     <FaBars className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
