@@ -5,7 +5,7 @@ import { FaRecycle } from 'react-icons/fa'; // Import the recycle icon
 const DenimRecycleAd = () => {
   return (
     <section
-      className="denim-recycle-ad text-center py-10 relative"
+      className="denim-recycle-ad text-center py-20 relative"
       style={{
         backgroundImage: 'url(/denimBK.jpg)', // Add your image URL here
         backgroundSize: 'cover',
@@ -15,7 +15,7 @@ const DenimRecycleAd = () => {
       }}
     >
       {/* Overlay with transparent black */}
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      <div className="absolute inset-0 bg-black opacity-55"></div>
 
       {/* Content */}
       <div className="relative z-10 px-4 sm:px-8">
@@ -36,7 +36,7 @@ const DenimRecycleAd = () => {
         </div>
         <div className="space-y-4 sm:space-y-0 sm:space-x-4">
           <button
-            className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300"
+            className="w-full sm:w-auto px-8 py-3 bg-yellow-400 text-black font-semibold rounded hover:bg-blue-700 transition duration-300"
             aria-label="Learn More about Denim Recycling"
           >
             Learn More

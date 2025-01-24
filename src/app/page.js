@@ -28,8 +28,8 @@ export default function Home() {
         <ProductShowcase />
         <AdvertisementVideoSection />
         <SaleProducts/>
-        <Testimonials />
         <NewsletterSignup />
+        <Testimonials />
       </main>
       <Footer />
     </>

@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import  Header  from "./components/home/Header";
+import Header from "./components/home/Header";
 import SocialMediaBar from "./components/home/SocialMediaBar";
-import { FaSpinner } from "react-icons/fa"; // Import spinner icon from React Icons
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,16 +32,15 @@ export default function RootLayout({ children }) {
       <head>
         {/* Add metadata for the page */}
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
           content="LaLa Studio - A place for creative expression and innovative design."
         />
         <meta name="author" content="LaLa Studio" />
         <meta name="theme-color" content="#4CAF50" />
-        <meta rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <title>LaLa Studio</title>
-        
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -50,18 +48,21 @@ export default function RootLayout({ children }) {
         {isLoading ? (
           // Loading Page
           <div className="flex items-center justify-center h-screen bg-gray-100">
-            <div className="text-center">
-              {/* Spinner Icon with Rainbow Animation */}
-              <FaSpinner className="w-16 h-16 sm:w-20 sm:h-20 text-blue-500 animate-spin mx-auto mb-4 rainbow-spinner" />
-              <p className="text-sm sm:text-lg font-semibold text-gray-600">
-                LaLa Studio, please wait...
-              </p>
-            </div>
-          </div>
+  <div className="relative w-24 h-24">
+    {/* Outer Spinner */}
+    <div className="absolute inset-0 border-8 border-t-transparent border-red-500 rounded-full animate-spin"></div>
+    {/* Middle Spinner */}
+    <div className="absolute inset-4 border-4 border-t-transparent border-yellow-500 rounded-full animate-[spin_1.5s_linear_infinite]"></div>
+    {/* Inner Spinner */}
+    <div className="absolute inset-8 border-2 border-t-transparent border-green-500 rounded-full animate-[spin_2s_linear_infinite]"></div>
+    {/* Center Dot */}
+    
+  </div>
+</div>
+
         ) : (
           // Main Content
           <>
-            
             <Header />
             {children}
           </>

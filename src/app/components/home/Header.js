@@ -28,12 +28,12 @@ export default function Navbar() {
   }`}
 >
   {/* Logo and Name */}
-  <div className="flex-1 flex items-center justify-between">
-    <a href="/" className="flex items-center ">
+  <div className="flex-1 flex items-center justify-between ">
+    <a href="/" className="flex items-center  ">
       <img
         src="/LALA LOGO AW FINAL.png"
         alt="Logo"
-        className="h-14"
+        className="h-14 "
       />
     </a>
   </div>
@@ -72,8 +72,8 @@ export default function Navbar() {
       <ul className="md:flex items-center justify-between text-base text-gray-800 pt-4 md:pt-0">
         <li>
           <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-            href="#"
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative"
+            href="/"
           >
             Home
           </a>
@@ -122,7 +122,7 @@ export default function Navbar() {
         
         <li>
           <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative"
             href="#"
           >
             Contact
@@ -131,7 +131,7 @@ export default function Navbar() {
       </ul>
 
       {/* Right Icons */}
-      <div className="flex items-center space-x-4 mt-4 md:mt-0">
+      <div className="flex items-center space-x-4 mt-4 md:mt-0 cursor-pointer relative">
         <button
           onClick={toggleSearch}
           className="text-gray-800 hover:text-blue-500 transition-colors duration-300"
