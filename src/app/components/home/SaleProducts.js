@@ -120,7 +120,7 @@ const SaleProducts = () => {
               </CardContent>
               <CardFooter className="flex justify-center p-5">
                 <Button className="bg-yellow-300 text-black px-3 py-1 rounded-sm text-xs hover:bg-yellow-400 hover:shadow-sm transition duration-300">
-                  Add to Cart
+                  Add to Bag
                 </Button>
               </CardFooter>
             </Card>

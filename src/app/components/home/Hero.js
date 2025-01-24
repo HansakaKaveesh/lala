@@ -19,7 +19,7 @@ export default function Hero() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div className="absolute inset-0 bg-black opacity-45"></div>
 
       <div className="w-full h-full flex items-center justify-center py-10 relative z-10">
         <div className="text-center lg:w-fit">

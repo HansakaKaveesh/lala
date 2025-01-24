@@ -39,14 +39,19 @@ export default function Navbar() {
   </div>
 
   {/* Centered Text */}
-  <div className="flex-1 flex justify-center px-28 ">
-      <span
-        className={`ml-1 text-5xl font-serif text-gray-300 transition-all duration-300 ${
-          isScrolled ? 'text-gray-600 transform scale-75 ' : 'text-yellow-300 transform scale-150 absolute top-10'
-        }`}
-      >LALA STUDIO
-      </span>
-    </div>
+<div className="absolute inset-0 flex items-center justify-center">
+  <span
+    className={`text-5xl font-serif transition-transform duration-1000 ease-in-out ${
+      isScrolled
+        ? 'text-gray-600 scale-75 translate-y-0'
+        : 'text-yellow-300 scale-150 translate-y-10'
+    }`}
+  >
+    LALA STUDIO
+  </span>
+</div>
+
+
 
   {/* Mobile Menu Toggle */}
   <label
@@ -114,14 +119,7 @@ export default function Navbar() {
             </div>
           )}
         </li>
-        <li>
-          <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
-            href="#"
-          >
-            About Us
-          </a>
-        </li>
+        
         <li>
           <a
             className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300"
