@@ -43,7 +43,7 @@ export default function Navbar() {
     className={`text-5xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
         ? 'text-gray-600 scale-50 md:scale-75 translate-y-0'
-        : 'text-yellow-300 scale-75 md:scale-125 translate-y-14'
+        : 'text-white scale-150 md:scale-200 translate-y-24 tracking-widest'
     }`}
   >
     LALA STUDIO
@@ -52,8 +52,7 @@ export default function Navbar() {
 
 
 
-
-  {/* Mobile Menu Toggle */}
+ {/* Mobile Menu Toggle */}
   <label
     htmlFor="menu-toggle"
     className="cursor-pointer md:hidden block relative"
@@ -93,7 +92,7 @@ export default function Navbar() {
               <ul className="flex flex-col text-gray-700">
                 <li>
                   <a
-                    href="#"
+                    href="/category/new-arrivals"
                     className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
                   >
                     New Arrivals
@@ -101,7 +100,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/category/denim"
                     className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
                   >
                     Denim
@@ -109,7 +108,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/category/tops"
                     className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
                   >
                     Tops
@@ -123,7 +122,7 @@ export default function Navbar() {
         <li>
           <a
             className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative"
-            href="#"
+            href="/contact"
           >
             Contact
           </a>
@@ -156,21 +155,39 @@ export default function Navbar() {
 
   {/* Search Bar */}
   {isSearchOpen && (
-    <div className="absolute top-full right-0 w-50 bg-white shadow-md p-4 z-50 rounded-md">
-      <div className="flex items-center">
+    <div className="absolute top-[110%] right-0 w-80 bg-white shadow-xl rounded-xl transform origin-top-right transition-all duration-300 ease-out backdrop-blur-sm border border-gray-100">
+    <div className="p-3 flex items-center gap-2 group">
+      <div className="flex-1 relative">
+        <svg 
+          className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
         <input
           type="text"
-          placeholder="Search..."
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Search products..."
+          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 placeholder-gray-400 text-gray-700"
         />
-        <button
-          onClick={toggleSearch}
-          className="ml-2 p-2 bg-gray-200 hover:bg-gray-300 rounded-md transition-colors duration-300"
-        >
-          Close
-        </button>
       </div>
+      <button
+        onClick={toggleSearch}
+        className="p-2 hover:bg-gray-50 rounded-lg transition-colors duration-200 group-hover:rotate-90"
+        aria-label="Close search"
+      >
+        <svg 
+          className="w-5 h-5 text-gray-500 hover:text-gray-700" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
+  </div>
   )}
 </header>
 

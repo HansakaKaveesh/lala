@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
         ) : (
           // Main Content
           <>
-            <Header />
+            
             {children}
           </>
         )}
