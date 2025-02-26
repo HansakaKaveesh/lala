@@ -26,7 +26,7 @@ export default function NewArrivals() {
   return (
     <div>
       <Header />
-    <div className="min-h-screen bg-gray-50">
+    <div className="mt-10 min-h-screen bg-gray-50">
       
        {/* Advertisement Section */}
        <div className="relative bg-gray-50 overflow-hidden ">
