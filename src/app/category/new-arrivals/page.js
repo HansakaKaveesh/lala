@@ -1,19 +1,35 @@
 "use client"
 import { useState } from 'react';
 import Header from "../../components/HeaderAll";
+import { useRouter } from 'next/navigation';
 
 const products = [
-  { id: 1, name: 'Pro 01', price: 50, image: '/home/featured/pro6.jpeg', category: 'Bag' },
-  { id: 2, name: 'Pro 02', price: 70, image: '/home/featured/pro1.jpeg', category: 'Denim' },
-  { id: 3, name: 'Running Sneakers', price: 40, image: '/home/featured/pro5.jpeg', category: 'Tops' },
-  { id: 4, name: 'Designer Watch', price: 80, image: '/home/featured/pro9.jpeg', category: 'Accessories' },
-  // Add more products here
+  { id: 1, name: 'Pro 01', price: 50, image: '/products/new/id-1 book.jpeg', category: 'Accessories' },
+  { id: 2, name: 'Pro 02', price: 70, image: '/products/new/id-2 book.jpeg', category: 'Accessories' },
+  { id: 3, name: 'Pro 03', price: 40, image: '/products/new/id-3 book.jpeg', category: 'Accessories' },
+  { id: 4, name: 'Pro 04', price: 80, image: '/products/new/id-4 book.jpeg', category: 'Accessories' },
+  { id: 5, name: 'Pro 05', price: 50, image: '/products/new/id-5 book.jpeg', category: 'Accessories' },
+  { id: 6, name: 'Pro 06', price: 70, image: '/products/new/id-6 bag.jpeg', category: 'Bag' },
+  { id: 7, name: 'Pro 07', price: 40, image: '/products/new/id-7 bag.jpeg', category: 'Bag' },
+  { id: 8, name: 'Pro 08', price: 80, image: '/products/new/id-8 bag.jpeg', category: 'Bag' },
+  { id: 9, name: 'Pro 09', price: 50, image: '/products/new/id-9 bag.jpeg', category: 'Bag' },
+  { id: 10, name: 'Pro 10', price: 70, image: '/products/new/id-10 bag.jpeg', category: 'Bag' },
+  { id: 11, name: 'Pro 11', price: 40, image: '/products/tops/id-11 top.jpg', category: 'Tops' },
+  { id: 12, name: 'Pro 12', price: 80, image: '/products/tops/id-12 top.jpg', category: 'Tops' },
+  { id: 13, name: 'Pro 13', price: 50, image: '/products/tops/id-13 top.jpg', category: 'Tops' },
+  { id: 14, name: 'Pro 14', price: 70, image: '/products/tops/id-14 top.jpg', category: 'Tops' },
+  { id: 15, name: 'Pro 15', price: 40, image: '/products/tops/id-15 top.jpg', category: 'Tops' },
+  
 ];
 
 export default function NewArrivals() {
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState([0, 100]);
+  const router = useRouter();
+  const handleAddToBag = (productId) => {
+    router.push(`/frequently-bought?id=${productId}`);
+  };
 
   const filteredProducts = products.filter(product => {
     return (
@@ -26,11 +42,11 @@ export default function NewArrivals() {
   return (
     <div>
       <Header />
-    <div className="mt-10 min-h-screen bg-gray-50">
+    <div className=" min-h-screen bg-gray-50">
       
        {/* Advertisement Section */}
        <div className="relative bg-gray-50 overflow-hidden ">
-        <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16 lg:px-8">
+        <div className=" mt-10 max-w-7xl mx-auto px-6 py-12 sm:py-16 lg:px-8">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 shadow-xl overflow-hidden">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="md:w-1/2 mb-8 md:mb-0">
@@ -153,9 +169,12 @@ export default function NewArrivals() {
                   <h3 className="text-xl font-bold text-gray-800 mt-1 mb-2">{product.name}</h3>
                   <div className="flex justify-between items-center">
                     <span className="text-2xl font-bold text-gray-900">${product.price}</span>
-                    <button className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200">
-                      Add to Bag
-                    </button>
+                    <button
+                      onClick={() => handleAddToBag(product.id)}
+                        className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200"
+                        >
+                        Add to Bag
+                        </button>
                   </div>
                 </div>
               </div>

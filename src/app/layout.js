@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/home/Header";
 import SocialMediaBar from "./components/home/SocialMediaBar";
+import { NextAuthProvider } from './provider';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,8 +64,11 @@ export default function RootLayout({ children }) {
         ) : (
           // Main Content
           <>
-            
+          
             {children}
+    
+            
+            
           </>
         )}
       </body>

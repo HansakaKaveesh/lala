@@ -57,7 +57,7 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
           className="absolute bottom-12 w-full flex justify-center"
         >
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 mb-8">
             {[
               { icon: <FaFacebook />, color: "text-blue-500" },
               { icon: <FaInstagram />, color: "text-pink-500" },

@@ -71,7 +71,7 @@ export default function Navbar() {
       <ul className="md:flex items-center justify-between text-base text-gray-800 pt-4 md:pt-0">
         <li>
           <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative"
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative underline-animation"
             href="/"
           >
             Home
@@ -83,45 +83,54 @@ export default function Navbar() {
           onMouseLeave={() => setIsCategoryOpen(false)}
         >
           <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer"
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative underline-animation"
           >
             Category
           </a>
           {isCategoryOpen && (
-            <div className="absolute top-9 left-0 bg-white shadow-md mt-2 w-48">
-              <ul className="flex flex-col text-gray-700">
-                <li>
-                  <a
-                    href="/category/new-arrivals"
-                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
-                  >
-                    New Arrivals
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/category/denim"
-                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
-                  >
-                    Denim
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/category/tops"
-                    className="block px-4 py-2 hover:bg-yellow-100 transition-colors duration-300"
-                  >
-                    Tops
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <div className="absolute top-12 left-0 bg-white shadow-lg rounded-lg mt-2 w-56 z-50 border border-gray-100">
+            <ul className="flex flex-col text-gray-700 divide-y divide-gray-100">
+              <li>
+                <a
+                  href="/category/new-arrivals"
+                  className="flex items-center px-5 py-3 hover:bg-amber-50/80 transition-all duration-200 group text-gray-800 hover:text-amber-700 font-medium"
+                >
+                  <svg className="w-5 h-5 mr-3 text-gray-400 group-hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                  New Arrivals
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/category/denim"
+                  className="flex items-center px-5 py-3 hover:bg-amber-50/80 transition-all duration-200 group text-gray-800 hover:text-amber-700 font-medium"
+                >
+                  <svg className="w-5 h-5 mr-3 text-gray-400 group-hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4M12 4v16m8-8l-4 4m0 0l-4-4m4 4l-4-4m0 0l4-4"/>
+                  </svg>
+                  Denim
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/category/tops"
+                  className="flex items-center px-5 py-3 hover:bg-amber-50/80 transition-all duration-200 group text-gray-800 hover:text-amber-700 font-medium"
+                >
+                  <svg className="w-5 h-5 mr-3 text-gray-400 group-hover:text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                  </svg>
+                  Tops
+                </a>
+              </li>
+            </ul>
+          </div>
           )}
         </li>
         
         <li>
           <a
-            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative"
+            className="md:p-4 py-3 px-0 block hover:text-blue-500 transition-colors duration-300 cursor-pointer relative underline-animation"
             href="/contact"
           >
             Contact
@@ -130,10 +139,10 @@ export default function Navbar() {
       </ul>
 
       {/* Right Icons */}
-      <div className="flex items-center space-x-4 mt-4 md:mt-0 cursor-pointer relative">
+      <div className="ml-2 flex items-center space-x-4 mt-4 md:mt-0 cursor-pointer relative">
         <button
           onClick={toggleSearch}
-          className="text-gray-800 hover:text-blue-500 transition-colors duration-300"
+          className="text-gray-800 hover:text-blue-500 transition-colors duration-300 "
         >
           <FaSearch className="text-xl" />
         </button>
