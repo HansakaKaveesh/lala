@@ -1,29 +1,35 @@
-import dbConnect from '../../lib/dbConnect'
-import User from '../../models/User'
+import dbConnect from '../../lib/dbConnect'; // Adjust the path as necessary
+import User from '../../models/User'; // Create a User model
 
 export default async function handler(req, res) {
-  await dbConnect()
+  await dbConnect();
 
   if (req.method === 'POST') {
-    const { name, email, password } = req.body
+    const { email, password } = req.body;
 
-    if (!name || !email || !password) {
-      return res.status(400).json({ error: 'All fields are required' })
+    // Basic validation
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password are required' });
     }
 
     try {
-      const existingUser = await User.findOne({ email })
-      if (existingUser) {
-        return res.status(400).json({ error: 'Email already exists' })
+      // Check if user already exists
+      const existingUser  = await User.findOne({ email });
+      if (existingUser ) {
+        return res.status(409).json({ message: 'User  already exists' });
       }
 
-      const user = new User({ name, email, password })
-      await user.save()
-      res.status(201).json({ message: 'User created successfully' })
+      // Create a new user
+      const user = new User({ email, password }); // You should hash the password before saving
+      await user.save();
+
+      return res.status(201).json({ message: 'User  created successfully' });
     } catch (error) {
-      res.status(500).json({ error: 'Error creating user' })
+      return res.status(500).json({ message: 'Internal server error' });
     }
   } else {
-    res.status(405).json({ error: 'Method not allowed' })
+    // Handle any other HTTP method
+    res.setHeader('Allow', ['POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

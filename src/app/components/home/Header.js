@@ -43,7 +43,7 @@ export default function Navbar() {
     className={`text-5xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
         ? 'text-gray-600  scale-75 md:scale-75 translate-y-0'
-        : 'text-white scale-150 md:scale-200 translate-y-24 tracking-widest'
+        : 'text-white scale-150 md:scale-200 translate-y-20 tracking-widest'
     }`}
   >
     LALA STUDIO

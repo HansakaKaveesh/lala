@@ -8,6 +8,8 @@ import SaleProducts from './components/home/SaleProducts';
 import { Testimonials } from './components/home/Testimonials';
 import NewsletterSignup  from './components/home/NewsletterSignup';
 import { Footer } from './components/home/Footer';
+import Ads from './components/home/ads';
+
 
 
 export default function Home() {
@@ -25,6 +27,7 @@ export default function Home() {
         <Header />
         <HeroSection />
         <ShopByCategory />
+        
         <ProductShowcase />
         <AdvertisementVideoSection />
         <SaleProducts/>
