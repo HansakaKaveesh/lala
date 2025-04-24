@@ -2,31 +2,39 @@
 import { useState } from "react";
 
 export default function Register() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ full_name: "", email: "", password: "", role: "customer" });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/auth/register", {
+    const res = await fetch("http://localhost/backend/register.php", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
+      headers: { "Content-Type": "application/json" },
     });
-
     const data = await res.json();
-    if (res.ok) alert("Registration successful!");
-    else alert(data.message);
+    if (data.status === "success") {
+      alert("Registered successfully! You can now log in.");
+    } else {
+      alert("Error registering user.");
+    }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="p-6 bg-white shadow-md rounded-md w-96">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-4">Register</h2>
-        <input type="text" name="name" placeholder="Full Name" onChange={handleChange} className="w-full p-2 mb-3 border rounded" required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} className="w-full p-2 mb-3 border rounded" required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} className="w-full p-2 mb-3 border rounded" required />
-        <button className="w-full bg-green-500 text-white p-2 rounded">Register</button>
+        <input type="text" name="full_name" placeholder="Full Name" onChange={handleChange} required className="w-full p-2 border rounded mb-2" />
+        <input type="email" name="email" placeholder="Email" onChange={handleChange} required className="w-full p-2 border rounded mb-2" />
+        <input type="password" name="password" placeholder="Password" onChange={handleChange} required className="w-full p-2 border rounded mb-2" />
+        <select name="role" onChange={handleChange} className="w-full p-2 border rounded mb-2">
+          <option value="customer">Customer</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button className="w-full bg-blue-500 text-white p-2 rounded">Register</button>
       </form>
     </div>
   );

@@ -108,9 +108,9 @@ export default function Hero() {
             transition={{ delay: 1 }}
             className="mt-8"
           >
-            <button className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full font-bold text-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl">
+            <a href="/category/new-arrivals" className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full font-bold text-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl inline-block">
               Shop Now
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 
