@@ -1,7 +1,8 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button"; // shadcn-ui button component
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 
 const HotSaleSection = () => {
@@ -14,7 +15,7 @@ const HotSaleSection = () => {
   ];
 
   const [search] = useState("");
-  const [priceFilter] = useState([0, 1000]); // Adjust max range if needed
+  const [priceFilter] = useState([0, 1000]);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
@@ -40,29 +41,37 @@ const HotSaleSection = () => {
         <p className="text-gray-600 mb-5 text-sm">Get the best deals on our top products.</p>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {filteredProducts.map((product) => (
-            <Card key={product.id} className="bg-white rounded-md shadow-sm transform transition duration-500 hover:-translate-y-1 hover:shadow-md">
-              <CardHeader>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-44 object-cover rounded-t-md"
-                />
-              </CardHeader>
-              <CardContent className="p-1">
-                <h3 className="text-base font-semibold text-gray-800 mb-1">{product.name}</h3>
-                <p className="text-xs text-gray-600 mb-1">{product.description}</p>
-                <p className="text-base font-semibold text-red-500">${product.price}</p>
-              </CardContent>
-              <CardFooter className="flex justify-center p-5">
-                <Button
-                  onClick={() => handleAddToBag(product.id)}
-                  className="bg-yellow-300 text-black px-3 py-1 rounded-sm text-xs hover:bg-yellow-400 hover:shadow-sm transition duration-300"
-                >
-                  Add to Bag
-                </Button>
-              </CardFooter>
-            </Card>
+          {filteredProducts.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-white rounded-md shadow-sm transform transition duration-500 hover:-translate-y-1 hover:shadow-md">
+                <CardHeader>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-44 object-cover rounded-t-md"
+                  />
+                </CardHeader>
+                <CardContent className="p-1">
+                  <h3 className="text-base font-semibold text-gray-800 mb-1">{product.name}</h3>
+                  <p className="text-xs text-gray-600 mb-1">{product.description}</p>
+                  <p className="text-base font-semibold text-red-500">${product.price}</p>
+                </CardContent>
+                <CardFooter className="flex justify-center p-5">
+                  <Button
+                    onClick={() => handleAddToBag(product.id)}
+                    className="bg-yellow-300 text-black px-3 py-1 rounded-sm text-xs hover:bg-yellow-400 hover:shadow-sm transition duration-300"
+                  >
+                    Add to Bag
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

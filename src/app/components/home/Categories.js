@@ -3,6 +3,20 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 const ShopByCategory = () => {
   const categories = [
@@ -34,11 +48,17 @@ const ShopByCategory = () => {
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-12 relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-gray-900 after:rounded-full">
           Shop by Category
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {categories.map((category, index) => (
-            <a
+            <motion.a
               href={category.link}
               key={index}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
               onMouseEnter={() => setHoveredCategory(index)}
               onMouseLeave={() => setHoveredCategory(null)}
               className="group relative block overflow-hidden rounded-xl transition-all duration-500 hover:z-10 hover:shadow-2xl"
@@ -80,7 +100,7 @@ const ShopByCategory = () => {
                   <div className="absolute inset-0 border-2 border-white/30 rounded-xl pointer-events-none" />
                 </div>
               </Card>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

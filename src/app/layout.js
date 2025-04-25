@@ -49,18 +49,22 @@ export default function RootLayout({ children }) {
         {isLoading ? (
           // Loading Page
           <div className="flex items-center justify-center h-screen bg-gray-100">
-  <div className="relative w-24 h-24">
-    {/* Outer Spinner */}
-    <div className="absolute inset-0 border-8 border-t-transparent border-red-500 rounded-full animate-spin"></div>
-    {/* Middle Spinner */}
-    <div className="absolute inset-4 border-4 border-t-transparent border-yellow-500 rounded-full animate-[spin_1.5s_linear_infinite]"></div>
-    {/* Inner Spinner */}
-    <div className="absolute inset-8 border-2 border-t-transparent border-green-500 rounded-full animate-[spin_2s_linear_infinite]"></div>
-    {/* Center Dot */}
-    
+    <div className="relative w-32 h-32 flex items-center justify-center">
+      {/* Outer Spinner */}
+      <div className="absolute inset-0 border-8 border-t-transparent border-red-500 rounded-full animate-spin"></div>
+      {/* Middle Spinner */}
+      <div className="absolute inset-4 border-4 border-t-transparent border-yellow-500 rounded-full animate-[spin_1.5s_linear_infinite]"></div>
+      {/* Inner Spinner */}
+      <div className="absolute inset-8 border-2 border-t-transparent border-green-500 rounded-full animate-[spin_2s_linear_infinite]"></div>
+      
+      {/* Centered Logo */}
+      <img
+        src="/LALA LOGO AW FINAL.png" // 🔁 Replace this with your actual logo path
+        alt="LaLa Studio Logo"
+        className="w-10 h-10 z-10"
+      />
+    </div>
   </div>
-</div>
-
         ) : (
           // Main Content
           <>
