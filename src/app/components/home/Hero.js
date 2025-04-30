@@ -1,13 +1,6 @@
 "use client";
 import React from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaWhatsapp,
-  FaLinkedin,
-  FaYoutube,
-  FaChevronDown,
-} from "react-icons/fa";
+import {FaFacebook,FaInstagram,FaWhatsapp,FaLinkedin,FaYoutube,FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Hero() {
