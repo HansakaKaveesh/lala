@@ -4,21 +4,21 @@ import Header from "../../components/HeaderAll";
 import { useRouter } from 'next/navigation';
 
 const products = [
-  { id: 1, name: 'Pro 01', price: 50, image: '/products/new/id-1 book.jpeg', category: 'Accessories', color: '#FF0000' },
-  { id: 2, name: 'Pro 02', price: 70, image: '/products/new/id-2 book.jpeg', category: 'Accessories', color: '#0000FF' },
-  { id: 3, name: 'Pro 03', price: 40, image: '/products/new/id-3 book.jpeg', category: 'Accessories', color: '#008000' },
-  { id: 4, name: 'Pro 04', price: 80, image: '/products/new/id-4 book.jpeg', category: 'Accessories', color: '#000000' },
-  { id: 5, name: 'Pro 05', price: 50, image: '/products/new/id-5 book.jpeg', category: 'Accessories', color: '#FFFFFF' },
-  { id: 6, name: 'Pro 06', price: 70, image: '/products/new/id-6 bag.jpeg', category: 'Bag', color: '#FF0000' },
-  { id: 7, name: 'Pro 07', price: 40, image: '/products/new/id-7 bag.jpeg', category: 'Bag', color: '#0000FF' },
-  { id: 8, name: 'Pro 08', price: 80, image: '/products/new/id-8 bag.jpeg', category: 'Bag', color: '#008000' },
-  { id: 9, name: 'Pro 09', price: 50, image: '/products/new/id-9 bag.jpeg', category: 'Bag', color: '#000000' },
-  { id: 10, name: 'Pro 10', price: 70, image: '/products/new/id-10 bag.jpeg', category: 'Bag', color: '#FFFFFF' },
-  { id: 11, name: 'Pro 11', price: 40, image: '/products/tops/id-11 top.jpg', category: 'Tops', color: '#FF0000' },
-  { id: 12, name: 'Pro 12', price: 80, image: '/products/tops/id-12 top.jpg', category: 'Tops', color: '#0000FF' },
-  { id: 13, name: 'Pro 13', price: 50, image: '/products/tops/id-13 top.jpg', category: 'Tops', color: '#008000' },
-  { id: 14, name: 'Pro 14', price: 70, image: '/products/tops/id-14 top.jpg', category: 'Tops', color: '#000000' },
-  { id: 15, name: 'Pro 15', price: 40, image: '/products/tops/id-15 top.jpg', category: 'Tops', color: '#FFFFFF' },
+  { id: 1, name: 'Pro 01', price: 50, image: '/products/new/id-1 book.jpeg', category: 'Accessories', color: '#FF0000', stock: 10 },
+  { id: 2, name: 'Pro 02', price: 70, image: '/products/new/id-2 book.jpeg', category: 'Accessories', color: '#0000FF', stock: 0 },
+  { id: 3, name: 'Pro 03', price: 40, image: '/products/new/id-3 book.jpeg', category: 'Accessories', color: '#008000', stock: 5 },
+  { id: 4, name: 'Pro 04', price: 80, image: '/products/new/id-4 book.jpeg', category: 'Accessories', color: '#000000', stock: 0 },
+  { id: 5, name: 'Pro 05', price: 50, image: '/products/new/id-5 book.jpeg', category: 'Accessories', color: '#FFFFFF', stock: 7 },
+  { id: 6, name: 'Pro 06', price: 70, image: '/products/new/id-6 bag.jpeg', category: 'Bag', color: '#FF0000', stock: 3 },
+  { id: 7, name: 'Pro 07', price: 40, image: '/products/new/id-7 bag.jpeg', category: 'Bag', color: '#0000FF', stock: 0 },
+  { id: 8, name: 'Pro 08', price: 80, image: '/products/new/id-8 bag.jpeg', category: 'Bag', color: '#008000', stock: 4 },
+  { id: 9, name: 'Pro 09', price: 50, image: '/products/new/id-9 bag.jpeg', category: 'Bag', color: '#000000', stock: 2 },
+  { id: 10, name: 'Pro 10', price: 70, image: '/products/new/id-10 bag.jpeg', category: 'Bag', color: '#FFFFFF', stock: 0 },
+  { id: 11, name: 'Pro 11', price: 40, image: '/products/tops/id-11 top.jpg', category: 'Tops', color: '#FF0000', stock: 9 },
+  { id: 12, name: 'Pro 12', price: 80, image: '/products/tops/id-12 top.jpg', category: 'Tops', color: '#0000FF', stock: 0 },
+  { id: 13, name: 'Pro 13', price: 50, image: '/products/tops/id-13 top.jpg', category: 'Tops', color: '#008000', stock: 6 },
+  { id: 14, name: 'Pro 14', price: 70, image: '/products/tops/id-14 top.jpg', category: 'Tops', color: '#000000', stock: 3 },
+  { id: 15, name: 'Pro 15', price: 40, image: '/products/tops/id-15 top.jpg', category: 'Tops', color: '#FFFFFF', stock: 0 },
 ];
 
 export default function NewArrivals() {
@@ -27,7 +27,7 @@ export default function NewArrivals() {
   const [priceFilter, setPriceFilter] = useState([0, 100]);
   const [colorFilter, setColorFilter] = useState('');
   const router = useRouter();
-  
+
   const handleAddToBag = (productId) => {
     router.push(`/frequently-bought?id=${productId}`);
   };
@@ -95,28 +95,16 @@ export default function NewArrivals() {
                 </button>
               </div>
 
-              {/* Search Bar */}
+              {/* Search */}
               <div className="mb-8">
                 <label className="text-sm font-medium text-gray-700 mb-2 block">Search</label>
-                <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-                    <svg 
-                      className="w-5 h-5 text-gray-400 group-focus-within:text-blue-500 transition-colors"
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
-                    placeholder="Type to search..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                </div>
+                <input
+                  type="text"
+                  className="w-full pl-4 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
+                  placeholder="Type to search..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
               </div>
 
               {/* Category Filter */}
@@ -167,123 +155,62 @@ export default function NewArrivals() {
                 </div>
               </div>
 
-              {/* Price Filter */}
+              {/* Price Range Filter */}
               <div>
-  <h3 className="text-sm font-semibold text-gray-700 uppercase mb-4 tracking-wide">Price Range</h3>
-  <div className="bg-blue-50 p-4 rounded-xl">
-    <div className="flex justify-between text-sm text-gray-600 mb-4">
-      <span>${priceFilter[0]}</span>
-      <span>${priceFilter[1]}</span>
-    </div>
-    <div className="relative">
-      <div className="h-1 bg-blue-100 rounded-full">
-        <div 
-          className="h-full bg-blue-500 rounded-full absolute" 
-          style={{ 
-            left: `${(priceFilter[0] / 100) * 100}%`, 
-            right: `${100 - (priceFilter[1] / 100) * 100}%` 
-          }}
-        />
-      </div>
-     
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={priceFilter[1]}
-        onChange={(e) => {
-          const newValue = Math.max(+e.target.value, priceFilter[0]); // Ensure it doesn't go below the min
-          setPriceFilter([priceFilter[0], newValue]);
-        }}
-        className="absolute w-full h-1 appearance-none pointer-events-auto opacity-100"
-      />
-      <div className="relative">
-        <div 
-          className="absolute h-4 w-4 bg-blue-500 rounded-full -top-1.5 transform -translate-x-1/2 shadow-lg"
-          style={{ left: `${(priceFilter[0] / 100) * 100}%` }}
-        />
-    
-      </div>
-    </div>
-  </div>
-</div>
+                <h3 className="text-sm font-semibold text-gray-700 uppercase mb-4 tracking-wide">Price Range</h3>
+                <div className="flex items-center gap-4">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={priceFilter[0]}
+                    onChange={(e) => setPriceFilter([+e.target.value, priceFilter[1]])}
+                    className="w-20 p-2 border rounded"
+                  />
+                  <span>-</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={priceFilter[1]}
+                    onChange={(e) => setPriceFilter([priceFilter[0], +e.target.value])}
+                    className="w-20 p-2 border rounded"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Products Grid */}
-          <div className="flex-1 px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
-                <div 
-                  key={product.id} 
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1.5"
-                >
-                  <div className="relative aspect-square overflow-hidden rounded-t-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transform transition-all duration-500 ease-in-out group-hover:scale-105" 
-                    />
-                    {product.isNew && (
-                      <span className="absolute top-3 right-3 px-3 py-1 bg-white/90 backdrop-blur text-xs font-bold text-rose-600 rounded-full shadow-sm">
-                        New Arrival
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="mb-3">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        {product.category}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 truncate mb-2 font-serif">
-                      {product.name}
-                    </h3>
-                    
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-gray-900">
-                          ${product.price}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-sm line-through text-gray-400">
-                            ${product.originalPrice}
-                          </span>
-                        )}
-                      </div>
-                      
-                      <button
-                        onClick={() => handleAddToBag(product.id)}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-sm font-semibold transition-all duration-200 transform hover:scale-[1.03] active:scale-95 shadow-sm hover:shadow-md"
-                      >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          className="h-5 w-5" 
-                          viewBox="0 0 20 20" 
-                          fill="currentColor"
-                        >
-                          <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                        </svg>
-                        Add to Bag
-                      </button>
-                    </div>
-                    
-                    {product.stockStatus && (
-            <div className="mt-3 flex items-center text-sm text-gray-500">
-              <span className={`inline-block w-2 h-2 rounded-full mr-2 ${product.stockStatus === 'In Stock' ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-              {product.stockStatus}
-            </div>
-          )}
+          {/* Products Display */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+  {filteredProducts.map((product) => (
+    <div key={product.id} className="bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+      <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-xl mb-4" />
+      <h3 className="text-lg font-bold text-gray-900">{product.name}</h3>
+      <p className="text-gray-700 mb-1">${product.price}</p>
+
+      <p className={`mb-2 font-medium ${
+        product.stock > 0 ? 'text-green-600' : 'text-red-600'
+      }`}>
+        {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
+      </p>
+
+      <button 
+        onClick={() => handleAddToBag(product.id)}
+        disabled={product.stock === 0}
+        className={`px-4 py-2 rounded-full transition-colors ${
+          product.stock > 0 
+            ? 'bg-blue-600 text-white hover:bg-blue-700' 
+            : 'bg-gray-400 text-white cursor-not-allowed'
+        }`}
+      >
+        Add to Bag
+      </button>
+    </div>
+  ))}
+</div>
         </div>
       </div>
-    ))}
-  </div>
-</div>
-      </div>
-    </div>
     </div>
   );
 }
