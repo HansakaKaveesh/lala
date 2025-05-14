@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { FaSearch, FaUserCircle, FaShoppingBag, FaBars } from "react-icons/fa";
 
@@ -28,16 +29,7 @@ export default function Navbar() {
   }`}
 >
   {/* Logo and Name */}
-  <div className="flex-1 flex items-center justify-between ">
-    <a href="/" className="flex items-center  ">
-      <img
-        src="/LALA LOGO AW FINAL.png"
-        alt="Logo"
-        className="h-14 "
-      />
-    </a>
-  </div>
-
+ 
   <div className="absolute inset-0 flex items-center justify-center">
   <span
     className="text-gray-600 text-3xl md:text-6xl lg:text-5xl font-serif transition-transform duration-1000 ease-in-out"
@@ -46,7 +38,15 @@ export default function Navbar() {
   </span>
 </div>
 
-
+<div className="relative flex-1 flex items-center justify-between">
+  <Link href="/" className="flex items-center">
+    <img
+      src="/LALA LOGO AW FINAL.png"
+      alt="Logo"
+      className="h-14 transition-transform duration-300 hover:scale-110"
+    />
+  </Link>
+</div>
 
  {/* Mobile Menu Toggle */}
   <label
