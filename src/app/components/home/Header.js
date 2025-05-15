@@ -36,7 +36,7 @@ export default function Navbar() {
     className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
         ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0'
-        : 'text-white scale-125 sm:scale-150 md:scale-200 md:translate-y-20 translate-y-10 sm:translate-y-16 tracking-widest'
+        : 'text-white scale-125 sm:scale-150 md:scale-200 md:translate-y-20 translate-y-16 sm:translate-y-16 tracking-widest'
     }`}
   >
     LALA STUDIO
