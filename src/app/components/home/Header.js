@@ -35,8 +35,8 @@ export default function Navbar() {
   <span
     className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
-        ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0'
-        : 'text-white scale-125 sm:scale-150 md:scale-200 md:translate-y-20 translate-y-16 sm:translate-y-16 tracking-widest'
+        ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-12'
+        : 'text-white scale-125 sm:scale-175 md:scale-[2.5] md:translate-y-36 translate-y-16 sm:translate-y-16  tracking-widest'
     }`}
   >
     LALA STUDIO
@@ -49,10 +49,11 @@ export default function Navbar() {
     <img
       src="/LALA LOGO AW FINAL.png"
       alt="Logo"
-      className="h-14 transition-transform duration-300 hover:scale-110"
+      className="h-14 transition-transform duration-300 hover:scale-110 hidden md:block" // ⬅️ Add hidden md:block here
     />
   </Link>
 </div>
+
 
  {/* Mobile Menu Toggle */}
   <label

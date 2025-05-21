@@ -47,24 +47,37 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {isLoading ? (
-          // Loading Page
-          <div className="flex items-center justify-center h-screen bg-gray-100">
-    <div className="relative w-32 h-32 flex items-center justify-center">
-      {/* Outer Spinner */}
-      <div className="absolute inset-0 border-8 border-t-transparent border-red-500 rounded-full animate-spin"></div>
-      {/* Middle Spinner */}
-      <div className="absolute inset-4 border-4 border-t-transparent border-yellow-500 rounded-full animate-[spin_1.5s_linear_infinite]"></div>
-      {/* Inner Spinner */}
-      <div className="absolute inset-8 border-2 border-t-transparent border-green-500 rounded-full animate-[spin_2s_linear_infinite]"></div>
-      
-      {/* Centered Logo */}
-      <img
-        src="/LALA LOGO AW FINAL.png" // 🔁 Replace this with your actual logo path
-        alt="LaLa Studio Logo"
-        className="w-10 h-10 z-10"
-      />
-    </div>
+<div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-200">
+  <div className="relative w-52 h-52 flex items-center justify-center">
+    {/* Spinner 1 (Outer) */}
+    <div className="absolute inset-0 border-8 border-t-transparent border-red-500 rounded-full animate-spin opacity-80"></div>
+
+    {/* Spinner 2 */}
+    <div className="absolute inset-2 border-8 border-t-transparent border-blue-500 rounded-full animate-[spin_3s_linear_infinite] opacity-70"></div>
+
+    {/* Spinner 3 */}
+    <div className="absolute inset-4 border-6 border-t-transparent border-yellow-500 rounded-full animate-[spin_2.5s_linear_infinite_reverse] opacity-60"></div>
+
+    {/* Spinner 4 */}
+    <div className="absolute inset-6 border-4 border-t-transparent border-green-500 rounded-full animate-[spin_2s_linear_infinite] opacity-50"></div>
+
+    {/* Spinner 5 */}
+    <div className="absolute inset-8 border-4 border-t-transparent border-purple-500 rounded-full animate-[spin_1.8s_linear_infinite_reverse] opacity-40"></div>
+
+    {/* Spinner 6 (Inner) */}
+    <div className="absolute inset-10 border-2 border-t-transparent border-pink-500 rounded-full animate-[spin_2.8s_linear_infinite] opacity-30"></div>
+
+    {/* Centered Logo */}
+    <img
+      src="/LALA LOGO AW FINAL.png"
+      alt="LaLa Studio Logo"
+      className="w-16 h-16 z-10 transition-transform duration-500 hover:scale-110"
+    />
   </div>
+</div>
+
+
+
         ) : (
           // Main Content
           <>

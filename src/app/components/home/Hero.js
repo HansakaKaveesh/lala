@@ -1,19 +1,55 @@
 "use client";
-import React from "react";
-import {FaFacebook,FaInstagram,FaWhatsapp,FaLinkedin,FaYoutube,FaChevronDown } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedin,
+  FaYoutube,
+  FaChevronDown,
+} from "react-icons/fa";
+import { Package, ShoppingBag, Boxes } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function Hero() {
-  const floatingVariants = {
-    float: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
+// Reusable Counter component
+const Counter = ({ value, decimals = 0 }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let current = 0;
+    const duration = 1000;
+    const stepTime = 10;
+    const steps = duration / stepTime;
+    const increment = value / steps;
+
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        current = value;
+        clearInterval(interval);
+      }
+      setCount(Number(current.toFixed(decimals)));
+    }, stepTime);
+
+    return () => clearInterval(interval);
+  }, [value, decimals]);
+
+  return (
+    <motion.span
+      className="font-bold text-3xl sm:text-5xl"
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      {count}
+    </motion.span>
+  );
+};
+
+const Hero = () => {
+  const [fannyCount] = useState(10);
+  const [toteCount] = useState(12);
+  const totalStock = fannyCount * 0.5 + toteCount * 0.5;
 
   return (
     <div
@@ -21,89 +57,55 @@ export default function Hero() {
       style={{
         backgroundImage: "url('/ad2.jpg')",
         backgroundAttachment: "fixed",
-        backgroundPosition: 'center',
+        backgroundPosition: "center",
       }}
     >
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30"></div>
 
-      {/* Floating Elements */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="absolute inset-0 pointer-events-none"
-      >
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            variants={floatingVariants}
-            animate="float"
-            className="absolute bg-white/10 w-24 h-24 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              scale: Math.random() * 0.5 + 0.5,
-            }}
-          />
-        ))}
-      </motion.div>
-
       <div className="w-full h-full flex flex-col items-center justify-center py-10 relative z-10 px-4 mt-2">
-        <motion.div 
+
+        {/* Stock Display */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl backdrop-blur-sm rounded-2xl p-8 bg-black/20 border border-white/10"
-        >
-          <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="mb-4"
-          >
-            <span className="text-white/80 font-semibold tracking-widest text-sm uppercase border-l-2 border-pink-500 pl-3">
-              New Collection 2024
-            </span>
-          </motion.div>
-          
-          <div className="space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-5xl sm:text-7xl font-bold uppercase"
-            >
-              <span className="bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
-                Get in Clothes
-              </span>
-            </motion.h1>
-            
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-              className="h-1 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto"
-            />
-            
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-6xl font-bold text-white uppercase mt-4"
-            >
-              <span className="text-stroke">Today</span>
-            </motion.h1>
-          </div>
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="w-full max-w-6xl mx-auto mt-0 sm:mt-20 text-white text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-center grid grid-cols-1 sm:grid-cols-3 gap-2 overflow-hidden px-12"
 
+        >
+          {/* Fanny Packs */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="mt-8"
+            className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full bg-pink-900/30 hover:bg-pink-900/40 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
           >
-            <a href="/category/new-arrivals" className="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full font-bold text-white hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl inline-block">
-              Shop Now
-            </a>
+            <div className="bg-pink-500/20 rounded-full p-1 sm:p-2 ">
+              <Package className="text-pink-400 w-5 h-5 sm:w-7 sm:h-7" />
+            </div>
+            <span className="text-xs sm:text-sm">Fanny Packs:</span>
+            <Counter value={fannyCount} />
+          </motion.div>
+
+          {/* Tote Bags */}
+          <motion.div
+            className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full bg-blue-900/30 hover:bg-blue-900/40 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
+          >
+            <div className="bg-blue-500/20 rounded-full p-1 sm:p-2">
+              <ShoppingBag className="text-blue-400 w-5 h-5 sm:w-7 sm:h-7" />
+            </div>
+            <span className="text-xs sm:text-sm">Tote Bags:</span>
+            <Counter value={toteCount} />
+          </motion.div>
+
+          {/* Total Stock */}
+          <motion.div
+            className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full bg-green-900/30 hover:bg-green-900/40 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
+          >
+            <div className="bg-green-500/20 rounded-full p-1 sm:p-2">
+              <Boxes className="text-green-400 w-5 h-5 sm:w-7 sm:h-7" />
+            </div>
+            <span className="text-xs sm:text-sm">Total Stock:</span>
+            <div className="flex items-end justify-center gap-1">
+              <Counter value={totalStock} decimals={1} />
+              <span className="text-sm">KG</span>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -148,45 +150,20 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scrolling Indicator */}
+      {/* Scroll Down Indicator */}
       <motion.div
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.5 }}
-  className="absolute bottom-8 inset-x-0 mx-auto flex flex-col items-center"
->
-  <div className="animate-bounce w-8 h-8 flex items-center justify-center">
-    <FaChevronDown className="text-white/80 text-xl" />
-  </div>
-  <span className="text-white/60 text-sm mt-0">Scroll Down</span>
-</motion.div>
-
-      <style jsx global>{`
-        .text-stroke {
-          -webkit-text-stroke: 2px rgba(255,255,255,0.8);
-          color: transparent;
-          position: relative;
-          display: inline-block;
-        }
-        .text-stroke::after {
-          content: 'Today';
-          position: absolute;
-          left: 0;
-          top: 0;
-          background: linear-gradient(45deg, #f472b6, #c084fc);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-stroke: 0;
-          clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-          animation: text-reveal 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          animation-delay: 1s;
-        }
-        @keyframes text-reveal {
-          100% {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-          }
-        }
-      `}</style>
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 inset-x-0 mx-auto flex flex-col items-center"
+      >
+        <div className="animate-bounce w-8 h-8 flex items-center justify-center">
+          <FaChevronDown className="text-white/80 text-xl" />
+        </div>
+        <span className="text-white/60 text-sm mt-0">Scroll Down</span>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default Hero;
