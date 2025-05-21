@@ -35,7 +35,7 @@ export default function Navbar() {
   <span
     className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
-        ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-12'
+        ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-16 '
         : 'text-white scale-125 sm:scale-175 md:scale-[2.5] md:translate-y-36 translate-y-16 sm:translate-y-16  tracking-widest'
     }`}
   >
