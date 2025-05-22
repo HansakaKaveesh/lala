@@ -38,9 +38,7 @@ export default function Navbar() {
         ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-16 '
         : 'text-white scale-125 sm:scale-175 md:scale-[2.5] md:translate-y-36 translate-y-16 sm:translate-y-16  tracking-widest'
     }`}
-  >
-    LALA STUDIO
-  </span>
+  >LALA STUDIO</span>
 </div>
 
 

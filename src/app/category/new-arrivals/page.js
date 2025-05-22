@@ -2,6 +2,12 @@
 import { useState } from 'react';
 import Header from "../../components/HeaderAll";
 import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardTitle, CardDescription, CardHeader } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+
 
 const products = [
   { id: 1, name: 'Pro 01', price: 50, image: '/products/new/id-1 book.jpeg', category: 'Accessories', color: '#FF0000', stock: 10 },
@@ -79,136 +85,156 @@ export default function NewArrivals() {
         <div className="flex flex-col lg:flex-row gap-8 p-6 max-w-7xl mx-auto">
           {/* Sidebar Filters */}
           <div className="w-full lg:w-80 space-y-8">
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-50 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 font-serif">Filter Products</h2>
-                <button 
-                  onClick={() => { 
-                    setSearch(''); 
-                    setCategoryFilter(''); 
-                    setPriceFilter([0, 100]);
-                    setColorFilter('');
-                  }}
-                  className="text-sm font-medium text-rose-600 hover:text-rose-700 transition-colors"
-                >
-                  Clear All
-                </button>
-              </div>
+  <Card className="shadow-lg hover:shadow-xl transition-shadow border border-gray-50">
+    <CardHeader className="flex justify-between items-center mb-2 p-6 pb-0">
+      <CardTitle className="text-2xl font-serif">Filter Products</CardTitle>
+      <Button
+        variant="link"
+        className="text-rose-600 hover:text-rose-700 p-0 h-auto text-sm font-medium"
+        onClick={() => {
+          setSearch('');
+          setCategoryFilter('');
+          setPriceFilter([0, 100]);
+          setColorFilter('');
+        }}
+      >
+        Clear All
+      </Button>
+    </CardHeader>
 
-              {/* Search */}
-              <div className="mb-8">
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Search</label>
-                <input
-                  type="text"
-                  className="w-full pl-4 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none"
-                  placeholder="Type to search..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </div>
+    <CardContent className="p-6 pt-2 space-y-6">
 
-              {/* Category Filter */}
-              <div className="mb-8">
-                <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Product Category</h3>
-                <div className="space-y-2">
-                  {['Bag', 'Tops', 'Accessories'].map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setCategoryFilter(cat === categoryFilter ? '' : cat)}
-                      className={`w-full px-4 py-2.5 text-left rounded-lg flex items-center justify-between transition-all 
-                        ${categoryFilter === cat 
-                          ? 'bg-blue-500 text-white' 
-                          : 'bg-gray-50 hover:bg-gray-100 text-gray-700'}`}
-                    >
-                      <span>{cat}</span>
-                      {categoryFilter === cat && (
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
+      {/* Search */}
+      <div>
+        <Label htmlFor="search" className="mb-2 block text-sm font-medium text-gray-700">Search</Label>
+        <Input
+          id="search"
+          placeholder="Type to search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
-              {/* Color Filter */}
-              <div className="mb-8">
-                <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Color</h3>
-                <div className="flex flex-wrap gap-2">
-                  {[...new Set(products.map(product => product.color))].map((color) => (
-                    <button
-                      key={color}
-                      onClick={() => setColorFilter(color === colorFilter ? '' : color)}
-                      className={`px-3 py-1.5 rounded-full text-sm flex items-center gap-2 border ${
-                        colorFilter === color 
-                          ? 'bg-blue-100 border-blue-500 text-blue-700'
-                          : 'bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100'
-                      }`}
-                    >
-                      <span 
-                        className="w-4 h-4 rounded-full border border-gray-300"
-                        style={{ backgroundColor: color }}
-                      />
-                      {color}
-                    </button>
-                  ))}
-                </div>
-              </div>
+      
 
-              {/* Price Range Filter */}
-              <div>
-                <h3 className="text-sm font-semibold text-gray-700 uppercase mb-4 tracking-wide">Price Range</h3>
-                <div className="flex items-center gap-4">
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    value={priceFilter[0]}
-                    onChange={(e) => setPriceFilter([+e.target.value, priceFilter[1]])}
-                    className="w-20 p-2 border rounded"
-                  />
-                  <span>-</span>
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    value={priceFilter[1]}
-                    onChange={(e) => setPriceFilter([priceFilter[0], +e.target.value])}
-                    className="w-20 p-2 border rounded"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Category Filter */}
+      <div>
+        <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Product Category</h3>
+        <div className="space-y-2">
+          {['Bag', 'Tops', 'Accessories'].map((cat) => (
+            <Button
+              key={cat}
+              variant="ghost"
+              onClick={() => setCategoryFilter(cat === categoryFilter ? '' : cat)}
+              className={`w-full justify-between text-left rounded-lg ${
+                categoryFilter === cat ? 'bg-blue-500 text-white hover:bg-blue-600' : ''
+              }`}
+            >
+              <span>{cat}</span>
+              {categoryFilter === cat && (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      
+
+      {/* Color Filter */}
+      <div>
+        <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Color</h3>
+        <div className="flex flex-wrap gap-2">
+          {[...new Set(products.map(product => product.color))].map((color) => (
+            <Button
+              key={color}
+              variant="outline"
+              onClick={() => setColorFilter(color === colorFilter ? '' : color)}
+              className={`px-3 py-1.5 text-sm rounded-full flex items-center gap-2 border ${
+                colorFilter === color
+                  ? 'bg-blue-100 border-blue-500 text-blue-700'
+                  : 'bg-muted text-muted-foreground hover:bg-gray-100'
+              }`}
+            >
+              <span
+                className="w-4 h-4 rounded-full border border-gray-300"
+                style={{ backgroundColor: color }}
+              />
+              {color}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      
+
+      {/* Price Range Filter */}
+      <div>
+        <h3 className="text-sm font-semibold text-gray-700 uppercase mb-4 tracking-wide">Price Range</h3>
+        <div className="flex items-center gap-4">
+          <Input
+            type="number"
+            min="0"
+            max="100"
+            value={priceFilter[0]}
+            onChange={(e) => setPriceFilter([+e.target.value, priceFilter[1]])}
+            className="w-20"
+          />
+          <span>-</span>
+          <Input
+            type="number"
+            min="0"
+            max="100"
+            value={priceFilter[1]}
+            onChange={(e) => setPriceFilter([priceFilter[0], +e.target.value])}
+            className="w-20"
+          />
+        </div>
+      </div>
+
+    </CardContent>
+  </Card>
+</div>
+
 
           {/* Products Display */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
   {filteredProducts.map((product) => (
-    <div key={product.id} className="bg-white p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <img src={product.image} alt={product.name} className="w-full h-56 object-cover rounded-xl mb-4" />
-      <h3 className="text-lg font-bold text-gray-900">{product.name}</h3>
-      <p className="text-gray-700 mb-1">${product.price}</p>
+    <Card key={product.id} className="hover:shadow-xl transition-shadow">
+      <img 
+        src={product.image} 
+        alt={product.name} 
+        className="w-full h-56 object-cover rounded-t-2xl"
+      />
+      <CardContent className="p-4">
+        <CardTitle className="text-lg font-bold text-gray-900">
+          {product.name}
+        </CardTitle>
+        <CardDescription className="text-gray-700 mb-1">
+          ${product.price}
+        </CardDescription>
 
-      <p className={`mb-2 font-medium ${
-        product.stock > 0 ? 'text-green-600' : 'text-red-600'
-      }`}>
-        {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
-      </p>
+        <p className={`mb-2 font-medium ${
+          product.stock > 0 ? 'text-green-600' : 'text-red-600'
+        }`}>
+          {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
+        </p>
 
-      <button 
-        onClick={() => handleAddToBag(product.id)}
-        disabled={product.stock === 0}
-        className={`px-4 py-2 rounded-full transition-colors ${
-          product.stock > 0 
-            ? 'bg-blue-600 text-white hover:bg-blue-700' 
-            : 'bg-gray-400 text-white cursor-not-allowed'
-        }`}
-      >
-        Add to Bag
-      </button>
-    </div>
+        <Button 
+          onClick={() => handleAddToBag(product.id)}
+          disabled={product.stock === 0}
+          className="w-full"
+          variant={product.stock > 0 ? "default" : "secondary"}
+        >
+          Add to Bag
+        </Button>
+      </CardContent>
+    </Card>
   ))}
 </div>
+
         </div>
       </div>
     </div>
