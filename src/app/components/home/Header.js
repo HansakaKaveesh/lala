@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { FaSearch, FaUserCircle, FaShoppingBag, FaBars } from "react-icons/fa";
+import { RiMenuFoldFill } from "react-icons/ri";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,11 +36,14 @@ export default function Navbar() {
   <span
     className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif transition-transform duration-1000 ease-in-out ${
       isScrolled
-        ? 'text-gray-600 scale-90 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-16 '
-        : 'text-white scale-125 sm:scale-175 md:scale-[2.5] md:translate-y-36 translate-y-16 sm:translate-y-16  tracking-widest'
-    }`}
-  >LALA STUDIO</span>
+        ? 'text-gray-600 scale-90 md:translate-x-0 sm:scale-90 translate-y-0  sm:translate-y-0 -translate-x-16 '
+        : 'text-white scale-125  sm:scale-175 md:scale-[2.5] md:translate-y-36 translate-y-16 sm:translate-y-16  tracking-widest'
+    } ${isMenuOpen ? 'hidden' : ''}`}
+  >
+    LALA STUDIO
+  </span>
 </div>
+
 
 
 <div className="relative flex-1 flex items-center justify-between">
@@ -59,7 +63,7 @@ export default function Navbar() {
     className="cursor-pointer md:hidden block relative"
     onClick={() => setIsMenuOpen((prev) => !prev)}
   >
-    <FaBars className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
+    <RiMenuFoldFill className="text-gray-600 text-2xl hover:text-gray-800 transition-colors duration-300" />
   </label>
   <input className="hidden peer" type="checkbox" id="menu-toggle" />
 
