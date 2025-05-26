@@ -84,25 +84,27 @@ export default function NewArrivals() {
 
         <div className="flex flex-col lg:flex-row gap-8 p-6 max-w-7xl mx-auto">
           {/* Sidebar Filters */}
-          <div className="w-full lg:w-80 space-y-8">
+<div className="w-full lg:w-80 space-y-8" role="region" aria-label="Product Filters">
   <Card className="shadow-lg hover:shadow-xl transition-shadow border border-gray-50">
     <CardHeader className="flex justify-between items-center mb-2 p-6 pb-0">
       <CardTitle className="text-2xl font-serif">Filter Products</CardTitle>
       <Button
         variant="link"
-        className="text-rose-600 hover:text-rose-700 p-0 h-auto text-sm font-medium"
+        className="text-rose-600 hover:text-rose-700 p-0 h-auto text-sm font-medium transition-transform active:scale-95"
         onClick={() => {
           setSearch('');
           setCategoryFilter('');
           setPriceFilter([0, 100]);
           setColorFilter('');
         }}
+        title="Clear all filters"
+        aria-label="Clear all filters"
       >
         Clear All
       </Button>
     </CardHeader>
 
-    <CardContent className="p-6 pt-2 space-y-6">
+    <CardContent className="p-6 pt-2 space-y-8">
 
       {/* Search */}
       <div>
@@ -112,10 +114,10 @@ export default function NewArrivals() {
           placeholder="Type to search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          aria-describedby="searchHelp"
         />
+        <p id="searchHelp" className="mt-1 text-xs text-gray-500">Search products by name or description</p>
       </div>
-
-      
 
       {/* Category Filter */}
       <div>
@@ -126,13 +128,21 @@ export default function NewArrivals() {
               key={cat}
               variant="ghost"
               onClick={() => setCategoryFilter(cat === categoryFilter ? '' : cat)}
-              className={`w-full justify-between text-left rounded-lg ${
+              className={`w-full justify-between text-left rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 ${
                 categoryFilter === cat ? 'bg-blue-500 text-white hover:bg-blue-600' : ''
               }`}
+              aria-pressed={categoryFilter === cat}
+              title={`Filter by category: ${cat}`}
             >
               <span>{cat}</span>
               {categoryFilter === cat && (
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               )}
@@ -141,57 +151,79 @@ export default function NewArrivals() {
         </div>
       </div>
 
-      
+{/* Color Filter */}
+<div>
+  <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Color</h3>
+  <div className="flex flex-wrap gap-2">
+    {products.length === 0 ? (
+      <p className="text-gray-500 text-sm italic">No colors available</p>
+    ) : (
+      [...new Set(products.map((product) => product.color).filter(Boolean))].map((color) => (
+        <Button
+          key={color}
+          variant="outline"
+          onClick={() => setColorFilter(color === colorFilter ? '' : color)}
+          className={`w-8 h-8 p-0 rounded-full border transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 flex items-center justify-center ${
+            colorFilter === color
+              ? 'bg-blue-100 border-blue-500 shadow-[0_0_8px_2px_rgba(59,130,246,0.5)]'
+              : 'bg-muted border-gray-300 hover:bg-gray-100'
+          }`}
+          aria-pressed={colorFilter === color}
+          aria-label={`${color} color filter ${colorFilter === color ? 'selected' : 'not selected'}`}
+          title={`Filter by color: ${color}`}
+        >
+          <span
+            className="w-5 h-5 rounded-full border border-gray-300 transition-colors duration-300 hover:border-blue-500"
+            style={{ backgroundColor: color }}
+            aria-hidden="true"
+          />
+        </Button>
+      ))
+    )}
+  </div>
+</div>
 
-      {/* Color Filter */}
-      <div>
-        <h3 className="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide">Color</h3>
-        <div className="flex flex-wrap gap-2">
-          {[...new Set(products.map(product => product.color))].map((color) => (
-            <Button
-              key={color}
-              variant="outline"
-              onClick={() => setColorFilter(color === colorFilter ? '' : color)}
-              className={`px-3 py-1.5 text-sm rounded-full flex items-center gap-2 border ${
-                colorFilter === color
-                  ? 'bg-blue-100 border-blue-500 text-blue-700'
-                  : 'bg-muted text-muted-foreground hover:bg-gray-100'
-              }`}
-            >
-              <span
-                className="w-4 h-4 rounded-full border border-gray-300"
-                style={{ backgroundColor: color }}
-              />
-              {color}
-            </Button>
-          ))}
-        </div>
-      </div>
 
-      
 
       {/* Price Range Filter */}
       <div>
         <h3 className="text-sm font-semibold text-gray-700 uppercase mb-4 tracking-wide">Price Range</h3>
         <div className="flex items-center gap-4">
-          <Input
-            type="number"
-            min="0"
-            max="100"
-            value={priceFilter[0]}
-            onChange={(e) => setPriceFilter([+e.target.value, priceFilter[1]])}
-            className="w-20"
-          />
-          <span>-</span>
-          <Input
-            type="number"
-            min="0"
-            max="100"
-            value={priceFilter[1]}
-            onChange={(e) => setPriceFilter([priceFilter[0], +e.target.value])}
-            className="w-20"
-          />
+          <div className="flex flex-col">
+            <Label htmlFor="price-min" className="sr-only">Minimum Price</Label>
+            <Input
+              id="price-min"
+              type="number"
+              min="0"
+              max={priceFilter[1]}
+              value={priceFilter[0]}
+              onChange={(e) => {
+                let val = Math.min(Math.max(Number(e.target.value), 0), priceFilter[1]);
+                setPriceFilter([val, priceFilter[1]]);
+              }}
+              className="w-20"
+              aria-describedby="priceRangeHelp"
+            />
+          </div>
+          <span aria-hidden="true">-</span>
+          <div className="flex flex-col">
+            <Label htmlFor="price-max" className="sr-only">Maximum Price</Label>
+            <Input
+              id="price-max"
+              type="number"
+              min={priceFilter[0]}
+              max="100"
+              value={priceFilter[1]}
+              onChange={(e) => {
+                let val = Math.max(Math.min(Number(e.target.value), 100), priceFilter[0]);
+                setPriceFilter([priceFilter[0], val]);
+              }}
+              className="w-20"
+              aria-describedby="priceRangeHelp"
+            />
+          </div>
         </div>
+        <p id="priceRangeHelp" className="mt-1 text-xs text-gray-500">Set minimum and maximum price between $0 and $100</p>
       </div>
 
     </CardContent>
@@ -199,34 +231,71 @@ export default function NewArrivals() {
 </div>
 
 
-          {/* Products Display */}
-<div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        {/* Products Display */}
+<div
+  className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+  role="list"
+>
   {filteredProducts.map((product) => (
-    <Card key={product.id} className="hover:shadow-xl transition-shadow">
-      <img 
-        src={product.image} 
-        alt={product.name} 
-        className="w-full h-56 object-cover rounded-t-2xl"
-      />
-      <CardContent className="p-4">
-        <CardTitle className="text-lg font-bold text-gray-900">
+    <Card
+      key={product.id}
+      role="listitem"
+      className="relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:scale-[1.02] transition-transform duration-300 focus-within:ring-2 focus-within:ring-blue-500"
+      tabIndex={0}
+      aria-label={`${product.name} product card`}
+    >
+      <div className="overflow-hidden">
+        <img
+          src={product.image || '/fallback-image.png'}
+          alt={product.name}
+          title={product.name}
+          className="w-full h-56 object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+          loading="lazy"
+          onError={(e) => {
+            e.currentTarget.src = '/fallback-image.png';
+          }}
+        />
+      </div>
+
+      {product.stock === 0 && (
+        <span
+          className="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg select-none"
+          aria-label="Out of stock"
+        >
+          Out of Stock
+        </span>
+      )}
+
+      <CardContent className="p-5 bg-white">
+        <CardTitle className="text-xl font-semibold text-gray-900 mb-1 truncate" title={product.name}>
           {product.name}
         </CardTitle>
-        <CardDescription className="text-gray-700 mb-1">
-          ${product.price}
+
+        <CardDescription className="text-gray-700 text-base mb-2">
+          ${product.price.toFixed(2)}
         </CardDescription>
 
-        <p className={`mb-2 font-medium ${
-          product.stock > 0 ? 'text-green-600' : 'text-red-600'
-        }`}>
+        <p
+          className={`mb-3 font-medium ${
+            product.stock > 0 ? 'text-green-600' : 'text-red-600'
+          }`}
+          aria-live="polite"
+        >
           {product.stock > 0 ? 'In Stock' : 'Out of Stock'}
         </p>
 
-        <Button 
+        <Button
           onClick={() => handleAddToBag(product.id)}
           disabled={product.stock === 0}
-          className="w-full"
-          variant={product.stock > 0 ? "default" : "secondary"}
+          aria-disabled={product.stock === 0}
+          title={product.stock === 0 ? 'This product is currently out of stock' : 'Add to Bag'}
+          className={`w-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 ${
+            product.stock === 0
+              ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+              : 'bg-blue-600 text-white hover:bg-blue-700'
+          }`}
+          variant={product.stock > 0 ? 'default' : 'secondary'}
         >
           Add to Bag
         </Button>
@@ -234,6 +303,8 @@ export default function NewArrivals() {
     </Card>
   ))}
 </div>
+
+
 
         </div>
       </div>
