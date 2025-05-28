@@ -22,21 +22,31 @@ const ShopByCategory = () => {
   const categories = [
     {
       name: "New Arrivals",
+      description: "Discover the latest trends and fresh styles for every season.",
       image: "/New.jpg",
       hoverImage: "/New.gif",
       link: "/category/new-arrivals",
     },
     {
       name: "Denim",
+      description: "Classic and contemporary denim wear to elevate your look.",
       image: "/Denim.jpg",
       hoverImage: "/Denim.gif",
       link: "/categories/denim",
     },
     {
       name: "Tops",
+      description: "Stylish and comfortable tops for casual and formal wear.",
       image: "/Tops.jpg",
       hoverImage: "/Tops.gif",
       link: "/categories/tops",
+    },
+    {
+      name: "ALT Products",
+      description: "Alternative products for unique style and personality.",
+      image: "/ALT.png",
+      hoverImage: "/ALT.gif",
+      link: "/categories/alt-products",
     },
   ];
 
@@ -49,7 +59,7 @@ const ShopByCategory = () => {
           Shop by Category
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
             <motion.a
               href={category.link}
@@ -61,12 +71,12 @@ const ShopByCategory = () => {
               variants={fadeUp}
               onMouseEnter={() => setHoveredCategory(index)}
               onMouseLeave={() => setHoveredCategory(null)}
-              className="group relative block overflow-hidden rounded-xl transition-all duration-500 hover:z-10 hover:shadow-2xl"
+              className="group relative block overflow-hidden rounded-lg transition-all duration-500 hover:z-10 hover:shadow-2xl"
               aria-label={`Explore ${category.name} collection`}
             >
-              <Card className="relative rounded-xl overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <Card className="relative rounded-lg overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <CardHeader className="p-0">
-                  <div className="relative h-72 aspect-[3/4]">
+                  <div className="relative h-48 aspect-[3/4]">
                     <div className="absolute inset-0 overflow-hidden">
                       <Image
                         src={category.image}
@@ -90,14 +100,17 @@ const ShopByCategory = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent transition-opacity duration-300 group-hover:opacity-80" />
                   </div>
                 </CardHeader>
-                <CardContent className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl font-bold tracking-wide transform transition-all duration-500 translate-y-0 group-hover:-translate-y-2">
+                <CardContent className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-semibold tracking-wide transform transition-all duration-500 translate-y-0 group-hover:-translate-y-1 relative">
                     {category.name}
-                    <span className="absolute -bottom-2 left-0 w-0 h-1 bg-amber-400 transition-all duration-500 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-1 bg-amber-400 transition-all duration-500 group-hover:w-full" />
                   </h3>
+                  <p className="mt-1 text-sm opacity-90 max-w-xs">
+                    {category.description}
+                  </p>
                 </CardContent>
                 <div className="absolute inset-0 hidden group-hover:block animate-pulse-slow">
-                  <div className="absolute inset-0 border-2 border-white/30 rounded-xl pointer-events-none" />
+                  <div className="absolute inset-0 border-2 border-white/30 rounded-lg pointer-events-none" />
                 </div>
               </Card>
             </motion.a>
