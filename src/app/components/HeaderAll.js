@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header
   className={`fixed top-0 left-0 w-full lg:px-16 px-4 flex flex-wrap items-center py-4 z-50 transition-all duration-300 ${
-    isScrolled || isMenuOpen ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-transparent"
+    isScrolled || isMenuOpen ? "bg-white/70 backdrop-blur-md shadow-md" : "bg-gray-300/70 backdrop-blur-md shadow-none"
   }`}
 >
   {/* Logo and Name */}
