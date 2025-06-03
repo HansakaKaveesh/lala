@@ -34,7 +34,7 @@ export default function Home() {
         <NewsletterSignup />
         <Testimonials />
       </main>
-      <Footer />
+      
     </>
   );
 } 

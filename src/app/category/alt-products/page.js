@@ -17,7 +17,7 @@ export default function Home() {
       <Featured />
       <Location/>
       <NewsEvents />
-      <Footer/>
+      
       
     </div>
   )

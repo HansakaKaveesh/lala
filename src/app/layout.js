@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/home/Header";
-
+import { Footer } from "./components/home/Footer";
 import { NextAuthProvider } from './provider';
 
 const geistSans = Geist({
@@ -81,11 +81,9 @@ export default function RootLayout({ children }) {
         ) : (
           // Main Content
           <>
-          
+            
             {children}
-    
-            
-            
+            <Footer />
           </>
         )}
       </body>
