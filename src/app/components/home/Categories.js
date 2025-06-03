@@ -52,7 +52,7 @@ const ShopByCategory = () => {
       description: "Alternative products for unique style and personality.",
       image: "/ALT.png",
       hoverImage: "/ALT.gif",
-      link: "/categories/alt-products",
+      link: "/category/alt-products",
       icon: <FiShoppingBag className="text-2xl text-green-400 transition-transform duration-300 group-hover:scale-110" />,
     },
   ];
