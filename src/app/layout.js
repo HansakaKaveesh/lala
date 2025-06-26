@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
     <img
       src="/LALA LOGO AW FINAL.png"
       alt="LaLa Studio Logo"
-      className="w-16 h-16 z-10 transition-transform duration-500 hover:scale-110"
+      className="w-24 h-24 z-10 transition-transform duration-500 hover:scale-110"
     />
   </div>
 </div>
