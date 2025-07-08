@@ -48,33 +48,21 @@ export default function RootLayout({ children }) {
       >
         {isLoading ? (
 <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-200">
-  <div className="relative w-52 h-52 flex items-center justify-center">
-    {/* Spinner 1 (Outer) */}
-    <div className="absolute inset-0 border-4 border-t-transparent border-red-500 rounded-full animate-spin "></div>
+  <div className="relative w-32 h-32 flex items-center justify-center rounded-2xl">
 
-    {/* Spinner 2 */}
-    <div className="absolute inset-2 border-4 border-t-transparent border-orange-500 rounded-full animate-[spin_3s_linear_infinite] "></div>
+    {/* Spinner 1 - Largest (faster) */}
+    <div className="absolute inset-3 border-[7px] border-t-transparent border-red-600 rounded-full animate-[spin_0.6s_linear_infinite] drop-shadow-sm"></div>
 
-    {/* Spinner 3 */}
-    <div className="absolute inset-4 border-4 border-t-transparent border-yellow-400 rounded-full animate-[spin_2.5s_linear_infinite_reverse] "></div>
+    {/* Spinner 2 - Medium (faster) */}
+    <div className="absolute inset-7 border-[7px] border-t-transparent border-green-700 rounded-full animate-[spin_0.8s_linear_infinite] drop-shadow-sm"></div>
 
-    {/* Spinner 4 */}
-    <div className="absolute inset-6 border-4 border-t-transparent border-green-600 rounded-full animate-[spin_2s_linear_infinite]"></div>
+    {/* Spinner 3 - Smallest (faster) */}
+    <div className="absolute inset-11 border-[7px] border-t-transparent border-yellow-500 rounded-full animate-[spin_1s_linear_infinite] drop-shadow-sm"></div>
 
-    {/* Spinner 5 */}
-    <div className="absolute inset-8 border-4 border-t-transparent border-blue-700 rounded-full animate-[spin_1.8s_linear_infinite_reverse] "></div>
-
-    {/* Spinner 6 (Inner) */}
-    <div className="absolute inset-10 border-4 border-t-transparent border-fuchsia-900 rounded-full animate-[spin_2.8s_linear_infinite] "></div>
-
-    {/* Centered Logo */}
-    <img
-      src="/LALA LOGO AW FINAL.png"
-      alt="LaLa Studio Logo"
-      className="w-24 h-24 z-10 transition-transform duration-500 hover:scale-110"
-    />
   </div>
 </div>
+
+
 
 
 

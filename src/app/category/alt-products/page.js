@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <Header />
       <Hero />
-      <Cards />
+      
       <Featured />
       <Location/>
       <NewsEvents />

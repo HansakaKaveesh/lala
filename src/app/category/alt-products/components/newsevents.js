@@ -1,8 +1,18 @@
 'use client';
+
 import { motion } from 'framer-motion';
 
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 const fadeUpVariant = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
@@ -39,27 +49,61 @@ export default function NewsUpdates() {
   ];
 
   return (
-    <section className="px-8 py-12 bg-gray-50">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">News Updates</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {updates.map((update, index) => (
+    <section className="px-6 md:px-20 py-16 bg-gray-50">
+      <motion.div
+        className="text-center mb-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUpVariant}
+      >
+        <h2 className="text-4xl font-extrabold text-gray-800 mb-3">
+          📰 News <span className="text-yellow-500">Updates</span>
+        </h2>
+        <p className="text-gray-500 text-md max-w-xl mx-auto">
+          Stay informed with the latest arrivals, drops, and curated ALT fashion stories.
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {updates.map((update) => (
           <motion.div
             key={update.id}
-            className="bg-white p-4 rounded shadow hover:shadow-md "
-            initial="hidden"
-            whileInView="visible"
+            className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
             variants={fadeUpVariant}
           >
-            <img
-              src={update.image}
-              alt={update.title}
-              className="mb-4 w-full h-48 object-cover rounded"
-            />
-            <h3 className="text-lg font-semibold mb-2 text-gray-800">{update.title}</h3>
-            <p className="text-gray-600 text-sm">{update.description}</p>
+            <div className="overflow-hidden">
+              <img
+                src={update.image}
+                alt={update.title}
+                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col h-[220px] justify-between">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 leading-snug mb-2">
+                  {update.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {update.description}
+                </p>
+              </div>
+              <a
+                href="#"
+                className="text-sm mt-4 text-yellow-600 font-medium hover:underline transition"
+              >
+                Read more →
+              </a>
+            </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
