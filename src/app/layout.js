@@ -50,17 +50,31 @@ export default function RootLayout({ children }) {
 <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-100 to-gray-200">
   <div className="relative w-32 h-32 flex items-center justify-center rounded-2xl">
 
-    {/* Spinner 1 - Largest (faster) */}
-    <div className="absolute inset-3 border-[7px] border-t-transparent border-red-600 rounded-full animate-[spin_0.6s_linear_infinite] drop-shadow-sm"></div>
+    {/* Red Spinner with bounce effect */}
+<div className="absolute inset-3 border-[7px] border-t-transparent border-red-500 rounded-full animate-spin-spring drop-shadow-sm"></div>
 
-    {/* Spinner 2 - Medium (faster) */}
-    <div className="absolute inset-7 border-[7px] border-t-transparent border-green-700 rounded-full animate-[spin_0.8s_linear_infinite] drop-shadow-sm"></div>
+{/* Orange Spinner */}
+<div className="absolute inset-5 border-[7px] border-t-transparent border-orange-500 rounded-full animate-spin-bounce drop-shadow-sm"></div>
 
-    {/* Spinner 3 - Smallest (faster) */}
-    <div className="absolute inset-11 border-[7px] border-t-transparent border-yellow-500 rounded-full animate-[spin_1s_linear_infinite] drop-shadow-sm"></div>
+{/* Yellow Spinner */}
+<div className="absolute inset-7 border-[7px] border-t-transparent border-yellow-400 rounded-full animate-spin-spring drop-shadow-sm"></div>
+
+{/* Green Spinner */}
+<div className="absolute inset-9 border-[7px] border-t-transparent border-green-500 rounded-full animate-spin-bounce drop-shadow-sm"></div>
+
+{/* Blue Spinner */}
+<div className="absolute inset-11 border-[7px] border-t-transparent border-blue-500 rounded-full animate-spin-spring drop-shadow-sm"></div>
+
+{/* Indigo Spinner */}
+<div className="absolute inset-[52px] border-[7px] border-t-transparent border-indigo-500 rounded-full animate-spin-bounce drop-shadow-sm"></div>
+
+{/* Violet Spinner */}
+<div className="absolute inset-[58px] border-[7px] border-t-transparent border-purple-500 rounded-full animate-spin-spring drop-shadow-sm"></div>
+
 
   </div>
 </div>
+
 
 
 

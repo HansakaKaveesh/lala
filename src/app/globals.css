@@ -186,3 +186,35 @@ body {
   animation: spin 1s linear infinite;
 }
 
+@keyframes spin-bounce {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+
+@keyframes spin-spring {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.95);
+  }
+}
+
+/* Custom animation classes */
+.animate-spin-bounce {
+  animation: spin-bounce 1.2s ease-in-out infinite;
+}
+
+.animate-spin-spring {
+  animation: spin-spring 1.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
