@@ -100,7 +100,7 @@ const Hero = () => {
     <div className="rounded-full p-1 sm:p-2">
       <Boxes className="text-green-400 w-5 h-5 sm:w-7 sm:h-7" />
     </div>
-    <span className="text-xs sm:text-sm">Total Stock:</span>
+    <span className="text-xs sm:text-sm">No. of KG's wasted upcycl:</span>
     <div className="flex items-end justify-center gap-1">
       <Counter value={totalStock} decimals={1} />
       <span className="text-sm">KG</span>
