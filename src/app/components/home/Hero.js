@@ -55,7 +55,7 @@ const Hero = () => {
     <div
       className="w-full h-screen bg-no-repeat bg-cover bg-center relative overflow-hidden"
       style={{
-        backgroundImage: "url('/ad2.jpg')",
+        backgroundImage: "url('/website trial image.jpg')",
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
       }}
@@ -73,7 +73,7 @@ const Hero = () => {
 >
   {/* Fanny Packs */}
   <motion.div
-    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full hover:bg-white/10 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
+    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full border border-white/20 transition duration-300 ease-in-out rounded-xl"
   >
     <div className="rounded-full p-1 sm:p-2">
       <Package className="text-pink-400 w-5 h-5 sm:w-7 sm:h-7" />
@@ -84,7 +84,7 @@ const Hero = () => {
 
   {/* Tote Bags */}
   <motion.div
-    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full hover:bg-white/10 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
+    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full border border-white/20 transition duration-300 ease-in-out rounded-xl"
   >
     <div className="rounded-full p-1 sm:p-2">
       <ShoppingBag className="text-blue-400 w-5 h-5 sm:w-7 sm:h-7" />
@@ -95,7 +95,7 @@ const Hero = () => {
 
   {/* Total Stock */}
   <motion.div
-    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full hover:bg-white/10 transition duration-300 ease-in-out rounded-xl shadow-lg backdrop-blur-sm"
+    className="flex flex-col items-center gap-1 cursor-default px-2 py-4 sm:px-4 sm:py-6 min-h-full border border-white/20 transition duration-300 ease-in-out rounded-xl"
   >
     <div className="rounded-full p-1 sm:p-2">
       <Boxes className="text-green-400 w-5 h-5 sm:w-7 sm:h-7" />
