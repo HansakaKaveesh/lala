@@ -103,7 +103,7 @@ const Hero = () => {
     <span className="text-xs sm:text-sm">No. of KG's wasted upcycle:</span>
     <div className="flex items-end justify-center gap-1">
       <Counter value={totalStock} decimals={1} />
-      <span className="text-sm">KG</span>
+      
     </div>
   </motion.div>
 </motion.div>
